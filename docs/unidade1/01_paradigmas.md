@@ -108,7 +108,7 @@ Este livro foi planejado como um curso integrado, unindo materiais e práticas c
    Aqui estabelecemos os alicerces teóricos e a sintaxe de Haskell. Ao trabalhar com uma linguagem funcional pura e estaticamente tipada, você aprenderá a pensar em termos de imutabilidade, casamento de padrões, recursão e funções de alta ordem. É o treinamento conceitual mais rigoroso.
    
 2. **Unidade 2: Haskell Avançado e Qualidade de Código (Prática Industrial)**
-   Subimos o nível para o desenvolvimento de software modular. Unificamos o clássico *Real World Haskell* com as ferramentas modernas do compilador GHC (através do **Stack**). Você aprenderá a modelar uma biblioteca de dados JSON e a garantir sua correção matemática usando testes baseados em propriedades com o **QuickCheck**, unindo teoria e engenharia de software de alta qualidade.
+   Subimos o nível para o desenvolvimento de software modular. Unificamos o clássico *Real World Haskell* com as ferramentas modernas do compilador GHC (através do **Cabal**). Você aprenderá a modelar uma biblioteca de dados JSON e a garantir sua correção matemática usando testes baseados em propriedades com o **QuickCheck**, unindo teoria e engenharia de software de alta qualidade — e verá duas aplicações mais avançadas do paradigma funcional, em construção de interpretadores e em processamento de dados geoespaciais.
    
 3. **Unidade 3: Lisp (Clojure) e Atores (Elixir) (A Diversidade do Paradigma)**
    Após dominar o rigor estático e puro de Haskell, exploramos dois mundos fundamentais na indústria:

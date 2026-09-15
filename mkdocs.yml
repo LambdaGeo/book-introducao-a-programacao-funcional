@@ -71,7 +71,7 @@ nav:
   - Unidade 1 — Paradigmas e Haskell Básico (20h):
     - "Plano da Unidade 1":                        unidade1/00_plano_unidade1.md
     - "Cap 1: Introdução aos Paradigmas":          unidade1/01_paradigmas.md
-    - "Cap 2: Instalação do Ambiente":             unidade1/02_instalacao.md
+    - "Cap 2: Instalação e Projeto Cabal":         unidade1/02_instalacao.md
     - "Cap 3: Fundamentos e o GHCi":               unidade1/03_fundamentos.md
     - "Cap 4: Tipos e Classes":                    unidade1/04_tipos_classes.md
     - "Cap 5: Funções e Pattern Matching":         unidade1/05_funcoes.md
@@ -83,10 +83,10 @@ nav:
     - "Plano da Unidade 2":                        unidade2/00_plano_unidade2.md
     - "Cap 9: Tipos Algébricos e Typeclasses":     unidade2/01_declarando_tipos_classes.md
     - "Cap 10: Programas Interativos (IO)":        unidade2/02_programas_interativos.md
-    - "Cap 11: Exercícios Avançados":              unidade2/03_exercicios_avancados.md
-    - "Cap 12: Projetos Modernos com Stack":       unidade2/04_haskell_moderno.md
-    - "Cap 13: A Biblioteca JSON":                 unidade2/05_biblioteca_json.md
-    - "Cap 14: Testes com QuickCheck":             unidade2/06_testes_qualidade.md
+    - "Cap 11: A Biblioteca JSON":                 unidade2/03_biblioteca_json.md
+    - "Cap 12: Testes com QuickCheck":             unidade2/04_testes_qualidade.md
+    - "Cap 13: Pegada de Compiladores":            unidade2/05_pegada_compiladores.md
+    - "Cap 14: Pegada de Dados Geográficos":       unidade2/06_pegada_dados_geograficos.md
     - "Trabalho Prático: hs2json":                 unidade2/07_avaliacao.md
 
   - Unidade 3 — Clojure e Elixir (20h):
