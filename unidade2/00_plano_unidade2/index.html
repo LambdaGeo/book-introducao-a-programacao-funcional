@@ -409,7 +409,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 2: Instalação do Ambiente
+    Cap 2: Instalação e Projeto Cabal
   
 
     
@@ -856,14 +856,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_exercicios_avancados/" class="md-nav__link">
+      <a href="../03_biblioteca_json/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 11: Exercícios Avançados
+    Cap 11: A Biblioteca JSON
   
 
     
@@ -884,14 +884,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_haskell_moderno/" class="md-nav__link">
+      <a href="../04_testes_qualidade/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 12: Projetos Modernos com Stack
+    Cap 12: Testes com QuickCheck
   
 
     
@@ -912,14 +912,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_biblioteca_json/" class="md-nav__link">
+      <a href="../05_pegada_compiladores/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 13: A Biblioteca JSON
+    Cap 13: Pegada de Compiladores
   
 
     
@@ -940,14 +940,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_testes_qualidade/" class="md-nav__link">
+      <a href="../06_pegada_dados_geograficos/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 14: Testes com QuickCheck
+    Cap 14: Pegada de Dados Geográficos
   
 
     
@@ -1666,7 +1666,7 @@
 </tr>
 <tr>
 <td><strong>Linguagem</strong></td>
-<td>Haskell (projetos com Stack e QuickCheck)</td>
+<td>Haskell (projetos com Cabal e QuickCheck)</td>
 </tr>
 </tbody>
 </table>
@@ -1675,9 +1675,10 @@
 <ol>
 <li><strong>Definir</strong> tipos algébricos de dados (ADTs), tipos recursivos e instâncias de classes de tipos próprias.</li>
 <li><strong>Construir</strong> programas interativos compreendendo a separação entre código puro e ações <code>IO</code>.</li>
-<li><strong>Estruturar</strong> um projeto Haskell moderno com Stack, organizando biblioteca, executável e suíte de testes.</li>
+<li><strong>Estruturar</strong> um projeto Haskell moderno com Cabal, organizando biblioteca, executável e suíte de testes.</li>
 <li><strong>Implementar</strong> uma biblioteca completa de serialização JSON, aplicando ADTs e pretty-printing (adaptado de <em>Real World Haskell</em>, cap. 5).</li>
 <li><strong>Garantir</strong> a qualidade do código com testes baseados em propriedades usando QuickCheck (adaptado de <em>Real World Haskell</em>, cap. 11).</li>
+<li><strong>Reconhecer</strong> aplicações avançadas do paradigma funcional em dois domínios reais: construção de interpretadores e parsers (casamento de expressões regulares, um interpretador de Scheme) e processamento de dados geoespaciais (geometria, álgebra de mapas).</li>
 </ol>
 <h2 id="cronograma">Cronograma<a class="headerlink" href="#cronograma" title="Permanent link">&para;</a></h2>
 <table>
@@ -1699,7 +1700,7 @@
 <tr>
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">2h</td>
-<td>Classes de tipos próprias, instâncias e derivação</td>
+<td>Classes de tipos próprias, instâncias, derivação e Lista 4 (laboratório)</td>
 <td><a href="../01_declarando_tipos_classes/">Declarando Custom Types</a></td>
 </tr>
 <tr>
@@ -1711,58 +1712,60 @@
 <tr>
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">2h</td>
-<td>Prática dirigida: exercícios avançados com ADTs e IO</td>
-<td><a href="../03_exercicios_avancados/">Exercícios Avançados</a></td>
+<td>Arquivos, <code>interact</code>, argumentos de linha de comando e Lista 5 (laboratório)</td>
+<td><a href="../02_programas_interativos/">Programas Interativos (IO)</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">2h</td>
-<td>Haskell moderno: Stack, package.yaml, módulos e dependências</td>
-<td><a href="../04_haskell_moderno/">Projetos Modernos com Stack</a></td>
+<td>Biblioteca JSON — parte 1: modelagem do tipo <code>JValue</code> e serialização</td>
+<td><a href="../03_biblioteca_json/">Escrevendo a Biblioteca JSON</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">2h</td>
-<td>Biblioteca JSON — parte 1: modelagem do tipo <code>JValue</code> e serialização</td>
-<td><a href="../05_biblioteca_json/">Escrevendo a Biblioteca JSON</a></td>
+<td>Biblioteca JSON — parte 2: pretty-printing e refinamento da API</td>
+<td><a href="../03_biblioteca_json/">Escrevendo a Biblioteca JSON</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">2h</td>
-<td>Biblioteca JSON — parte 2: pretty-printing e refinamento da API</td>
-<td><a href="../05_biblioteca_json/">Escrevendo a Biblioteca JSON</a></td>
+<td>Testes baseados em propriedades com QuickCheck</td>
+<td><a href="../04_testes_qualidade/">Testes com QuickCheck</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">8</td>
 <td style="text-align: center;">2h</td>
-<td>Testes baseados em propriedades com QuickCheck</td>
-<td><a href="../06_testes_qualidade/">Testes com QuickCheck</a></td>
+<td>Pegada avançada: parsers, casamento de padrões e um interpretador de Scheme</td>
+<td><a href="../05_pegada_compiladores/">Pegada de Compiladores</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">9</td>
 <td style="text-align: center;">2h</td>
-<td>Laboratório orientado: desenvolvimento do trabalho prático</td>
-<td><a href="../07_avaliacao/">Trabalho Prático</a></td>
+<td>Pegada avançada: geometria e álgebra de mapas com dados geográficos</td>
+<td><a href="../06_pegada_dados_geograficos/">Pegada de Dados Geográficos</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">2h</td>
-<td>Entrega, apresentação e defesa dos trabalhos</td>
+<td>Laboratório orientado, entrega e defesa do trabalho prático</td>
 <td><a href="../07_avaliacao/">Trabalho Prático</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="metodologia">Metodologia<a class="headerlink" href="#metodologia" title="Permanent link">&para;</a></h2>
-<p>A unidade é orientada a projeto: os conceitos das aulas 1–5 convergem para a construção incremental da biblioteca JSON (aulas 6–8), que é também o objeto da avaliação. As aulas 4, 9 e 10 são realizadas em laboratório.</p>
-<p>Os capítulos 5 e 6 deste material apresentam os conceitos e as decisões de projeto; o desenvolvimento passo a passo é guiado pelo tutorial <strong><a href="https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/">Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck</a></strong>, no blog do LambdaGEO.</p>
+<p>A unidade é orientada a projeto: os conceitos das aulas 1–4 convergem para a construção incremental da biblioteca JSON (aulas 5–7), que é também o objeto da avaliação. As aulas 8 e 9 são capítulos de leitura e demonstração — mostram o paradigma funcional aplicado a projetos reais e completos (não são pré-requisito para o trabalho prático, mas ilustram para onde os conceitos da unidade levam fora de um exercício de livro). A aula 10 é laboratório de desenvolvimento e apresentação.</p>
+<p>Os capítulos 5 e 6 (numeração deste material) apresentam os conceitos e as decisões de projeto da biblioteca JSON; o desenvolvimento passo a passo é guiado pelo tutorial <strong><a href="https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/">Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck</a></strong>, no blog do LambdaGEO.</p>
 <h2 id="avaliacao">Avaliação<a class="headerlink" href="#avaliacao" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Trabalho prático (100%)</strong> — desenvolvimento da biblioteca JSON estruturada com Stack e integrada com uma suíte de testes QuickCheck, conforme especificado no capítulo <a href="../07_avaliacao/">Trabalho Prático</a>. A nota considera: corretude e completude da biblioteca, qualidade e cobertura das propriedades testadas, organização do projeto e defesa individual na aula 10.</li>
+<li><strong>Trabalho prático (100%)</strong> — desenvolvimento da biblioteca JSON estruturada com Cabal e integrada com uma suíte de testes QuickCheck, conforme especificado no capítulo <a href="../07_avaliacao/">Trabalho Prático</a>. A nota considera: corretude e completude da biblioteca, qualidade e cobertura das propriedades testadas, organização do projeto e defesa individual na aula 10.</li>
 </ul>
 <h2 id="bibliografia-da-unidade">Bibliografia da unidade<a class="headerlink" href="#bibliografia-da-unidade" title="Permanent link">&para;</a></h2>
 <ul>
 <li>O'SULLIVAN, Bryan; STEWART, Don; GOERZEN, John. <em>Real World Haskell</em> — capítulos 5 e 11 (código modernizado para os padrões atuais do GHC).</li>
 <li>LIPOVAČA, Miran. <em>Learn You a Haskell for Great Good!</em> — capítulos 7 a 9.</li>
+<li>FISCHER, Sebastian; HUCH, Frank; WILKE, Thomas. <em>A Play on Regular Expressions</em> (ICFP 2010) — base teórica do capítulo <a href="../05_pegada_compiladores/">Pegada de Compiladores</a>.</li>
+<li>COSTA, Sérgio S.; CÂMARA, Gilberto; PALOMO, Danilo. <em>TerraHS: Integration of Functional Programming and Spatial Databases for GIS Application Development</em>, in <em>Advances in Geoinformatics</em> (Springer, 2007) — base teórica do capítulo <a href="../06_pegada_dados_geograficos/">Pegada de Dados Geográficos</a>.</li>
 </ul>
 
 

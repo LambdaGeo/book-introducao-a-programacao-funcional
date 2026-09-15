@@ -14,10 +14,10 @@
       
       
       
-        <link rel="prev" href="../03_exercicios_avancados/">
+        <link rel="prev" href="../03_biblioteca_json/">
       
       
-        <link rel="next" href="../05_biblioteca_json/">
+        <link rel="next" href="../05_pegada_compiladores/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Cap 12: Projetos Modernos com Stack - Introdução à Programação Funcional</title>
+        <title>Cap 12: Testes com QuickCheck - Introdução à Programação Funcional</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estrutura-de-projetos-com-stack-e-haskell-moderno" class="md-skip">
+        <a href="#testes-e-garantia-de-qualidade-com-quickcheck" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cap 12: Projetos Modernos com Stack
+              Cap 12: Testes com QuickCheck
             
           </span>
         </div>
@@ -409,7 +409,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 2: Instalação do Ambiente
+    Cap 2: Instalação e Projeto Cabal
   
 
     
@@ -743,14 +743,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_exercicios_avancados/" class="md-nav__link">
+      <a href="../03_biblioteca_json/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 11: Exercícios Avançados
+    Cap 11: A Biblioteca JSON
   
 
     
@@ -787,7 +787,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 12: Projetos Modernos com Stack
+    Cap 12: Testes com QuickCheck
   
 
     
@@ -805,7 +805,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 12: Projetos Modernos com Stack
+    Cap 12: Testes com QuickCheck
   
 
     
@@ -831,10 +831,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-o-stack" class="md-nav__link">
+  <a href="#por-que-testar-propriedades" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 O que é o Stack?
+        🧪 Por que Testar Propriedades?
       
     </span>
   </a>
@@ -842,38 +842,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-um-projeto-stack" class="md-nav__link">
+  <a href="#o-sabor-da-coisa-propriedades-de-uma-ordenacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📁 Estrutura de um Projeto Stack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📁 Estrutura de um Projeto Stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#arquivos-principais-de-configuracao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arquivos Principais de Configuração:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comandos-essenciais-do-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🛠️ Comandos Essenciais do Stack
+        💡 O Sabor da Coisa: Propriedades de uma Ordenação
       
     </span>
   </a>
@@ -881,10 +853,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escrevendo-um-modulo-haskell-moderno" class="md-nav__link">
+  <a href="#gerando-dados-customizados-a-classe-arbitrary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧩 Escrevendo um Módulo Haskell Moderno
+        🎲 Gerando Dados Customizados: a Classe Arbitrary
       
     </span>
   </a>
@@ -892,10 +864,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transicao-da-teoria-academica-para-o-desenvolvimento-modular" class="md-nav__link">
+  <a href="#cobertura-com-hpc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔗 Transição: Da Teoria Acadêmica para o Desenvolvimento Modular
+        📊 Cobertura com HPC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-voce-deve-dominar-ao-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 O que Você Deve Dominar ao Final
       
     </span>
   </a>
@@ -918,14 +901,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_biblioteca_json/" class="md-nav__link">
+      <a href="../05_pegada_compiladores/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 13: A Biblioteca JSON
+    Cap 13: Pegada de Compiladores
   
 
     
@@ -946,14 +929,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_testes_qualidade/" class="md-nav__link">
+      <a href="../06_pegada_dados_geograficos/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 14: Testes com QuickCheck
+    Cap 14: Pegada de Dados Geográficos
   
 
     
@@ -1566,10 +1549,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-o-stack" class="md-nav__link">
+  <a href="#por-que-testar-propriedades" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 O que é o Stack?
+        🧪 Por que Testar Propriedades?
       
     </span>
   </a>
@@ -1577,38 +1560,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-um-projeto-stack" class="md-nav__link">
+  <a href="#o-sabor-da-coisa-propriedades-de-uma-ordenacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📁 Estrutura de um Projeto Stack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📁 Estrutura de um Projeto Stack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#arquivos-principais-de-configuracao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arquivos Principais de Configuração:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comandos-essenciais-do-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🛠️ Comandos Essenciais do Stack
+        💡 O Sabor da Coisa: Propriedades de uma Ordenação
       
     </span>
   </a>
@@ -1616,10 +1571,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escrevendo-um-modulo-haskell-moderno" class="md-nav__link">
+  <a href="#gerando-dados-customizados-a-classe-arbitrary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧩 Escrevendo um Módulo Haskell Moderno
+        🎲 Gerando Dados Customizados: a Classe Arbitrary
       
     </span>
   </a>
@@ -1627,10 +1582,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transicao-da-teoria-academica-para-o-desenvolvimento-modular" class="md-nav__link">
+  <a href="#cobertura-com-hpc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔗 Transição: Da Teoria Acadêmica para o Desenvolvimento Modular
+        📊 Cobertura com HPC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-voce-deve-dominar-ao-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 O que Você Deve Dominar ao Final
       
     </span>
   </a>
@@ -1654,113 +1620,79 @@
 
 
 
-<h1 id="estrutura-de-projetos-com-stack-e-haskell-moderno">Estrutura de Projetos com Stack e Haskell Moderno<a class="headerlink" href="#estrutura-de-projetos-com-stack-e-haskell-moderno" title="Permanent link">&para;</a></h1>
-<p>No desenvolvimento industrial de Haskell, não compilamos arquivos avulsos usando <code>ghc</code> manualmente como no ambiente acadêmico. Em vez disso, utilizamos ferramentas de build modernas que gerenciam dependências, garantem reprodutibilidade e automatizam compilações e testes.</p>
-<p>Neste livro, usaremos o <strong>Stack</strong> como ferramenta de build: ele resolve as dependências automaticamente por meio de <em>resolvers</em> do Stackage, o que o torna especialmente amigável para quem está aprendendo. Vale saber que, no ecossistema Haskell mais amplo, <strong>Cabal</strong> (hoje tipicamente usado junto do GHCup) é a outra escolha popular e é a recomendação oficial atual do haskell.org — os dois convivem na comunidade, e as habilidades aprendidas com Stack transferem-se diretamente para Cabal.</p>
+<h1 id="testes-e-garantia-de-qualidade-com-quickcheck">Testes e Garantia de Qualidade com QuickCheck<a class="headerlink" href="#testes-e-garantia-de-qualidade-com-quickcheck" title="Permanent link">&para;</a></h1>
+<p>Neste capítulo, aprenderemos a metodologia de <strong>Testes Baseados em Propriedades</strong> (<em>Property-Based Testing</em>) com a biblioteca <strong>QuickCheck</strong>, adaptando o capítulo 11 do <em>Real World Haskell</em> para o ambiente de testes de um projeto <strong>Cabal</strong> moderno — e a aplicaremos à biblioteca JSON do capítulo anterior.</p>
+<div class="admonition success">
+<p class="admonition-title">Tutorial completo no blog</p>
+<p>O passo a passo — configuração da suíte no arquivo <code>.cabal</code>, todas as propriedades, a instância <code>Arbitrary</code> do <code>JValue</code> e a medição de cobertura — está na <strong>Parte 2</strong> do tutorial no blog do LambdaGEO:</p>
+<p><strong><a href="https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/">Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck</a></strong></p>
+<p>Este capítulo apresenta os conceitos; siga o tutorial para implementar a suíte completa.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Leitura complementar</p>
+<p>O capítulo original que inspirou este material: <a href="http://book.realworldhaskell.org/read/testing-and-quality-assurance.html"><em>Real World Haskell</em>, Cap. 11 — Testing and quality assurance</a> (em inglês; o tutorial do blog moderniza o código para QuickCheck 2.14 e o HPC atual).</p>
+</div>
 <hr />
-<h2 id="o-que-e-o-stack">🚀 O que é o Stack?<a class="headerlink" href="#o-que-e-o-stack" title="Permanent link">&para;</a></h2>
-<p>O <strong>Stack</strong> é um programa para gerenciar projetos Haskell. Ele se encarrega de:</p>
+<h2 id="por-que-testar-propriedades">🧪 Por que Testar Propriedades?<a class="headerlink" href="#por-que-testar-propriedades" title="Permanent link">&para;</a></h2>
+<p>Os testes unitários tradicionais fornecem entradas específicas e checam saídas esperadas (<code>soma 2 3 == 5</code>). Embora úteis, exigem que o desenvolvedor pense manualmente em todos os casos especiais. Os testes baseados em propriedades invertem essa lógica:</p>
 <ol>
-<li>Instalar a versão correta do compilador GHC automaticamente para cada projeto (isolando-a de outras no sistema).</li>
-<li>Baixar e gerenciar dependências utilizando o <strong>Stackage</strong>, um repositório curado onde todas as bibliotecas são testadas juntas para garantir compatibilidade.</li>
-<li>Compilar, rodar executáveis e executar suítes de testes de forma simples.</li>
+<li>Definimos <strong>propriedades universais</strong> (invariantes) que o código deve obedecer para <em>qualquer</em> entrada;</li>
+<li>O <strong>QuickCheck</strong> gera automaticamente centenas de entradas aleatórias e testa as invariantes;</li>
+<li>Ao encontrar uma falha, ele <strong>encolhe</strong> (<em>shrinking</em>) a entrada até o menor caso que reproduz o erro.</li>
 </ol>
-<hr />
-<h2 id="estrutura-de-um-projeto-stack">📁 Estrutura de um Projeto Stack<a class="headerlink" href="#estrutura-de-um-projeto-stack" title="Permanent link">&para;</a></h2>
-<p>Quando criamos um projeto novo rodando <code>stack new hs2json</code>, o Stack gera a seguinte árvore de diretórios:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hs2json/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── app/
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   └── Main.hs             # Ponto de entrada executável (função main)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── src/
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── Lib.hs              # Código-fonte da nossa biblioteca reutilizável
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── test/
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   └── Spec.hs             # Suíte de testes automatizados
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── package.yaml            # Configuração do projeto moderna (metadados e dependências)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── stack.yaml              # Configuração do Stack (fixa a versão do compilador GHC)
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└── hs2json.cabal           # Configuração gerada automaticamente (NÃO EDITAR)
+<h2 id="o-sabor-da-coisa-propriedades-de-uma-ordenacao">💡 O Sabor da Coisa: Propriedades de uma Ordenação<a class="headerlink" href="#o-sabor-da-coisa-propriedades-de-uma-ordenacao" title="Permanent link">&para;</a></h2>
+<p>Para um algoritmo de ordenação <code>qsort</code>, que invariantes devem valer para <strong>qualquer</strong> lista?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Test.QuickCheck</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Data.List</span><span class="w"> </span><span class="p">(</span><span class="nf">sort</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">\\</span><span class="p">))</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">-- Idempotência: ordenar duas vezes == ordenar uma vez</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nf">prop_idempotente</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nf">prop_idempotente</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1">-- O menor elemento vem primeiro (só para listas não vazias)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nf">prop_minimo</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Property</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nf">prop_minimo</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="p">(</span><span class="n">null</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="p">(</span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">xs</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">-- Teste baseado em modelo: concorda com o sort da biblioteca padrão</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nf">prop_modelo</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nf">prop_modelo</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="n">xs</span>
 </code></pre></div>
-<h3 id="arquivos-principais-de-configuracao">Arquivos Principais de Configuração:<a class="headerlink" href="#arquivos-principais-de-configuracao" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ghci&gt; quickCheck prop_idempotente
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>+++ OK, passed 100 tests.
+</code></pre></div>
+<p>Três conceitos importantes aparecem aqui:</p>
 <ul>
-<li><strong><code>stack.yaml</code></strong>: Define o <code>resolver</code>, que especifica a versão do compilador GHC e a seleção compatível de pacotes do Stackage.</li>
-<li><strong><code>package.yaml</code></strong>: A especificação moderna do seu pacote. Aqui você define:<ul>
-<li>Nome, autor, versão do projeto.</li>
-<li>Dependências globais (ex: <code>base</code>, <code>text</code>, <code>containers</code>).</li>
-<li>Módulos da <strong>Library</strong> (código em <code>src/</code>).</li>
-<li>Dependências e módulos do <strong>Executable</strong> (código em <code>app/</code> que consome a library).</li>
-<li>Configuração dos <strong>Tests</strong> (código em <code>test/</code> que testa a library).</li>
+<li><strong>Implicação (<code>==&gt;</code>)</strong>: descarta entradas inválidas antes de testar (note que o tipo muda de <code>Bool</code> para <code>Property</code>);</li>
+<li><strong>Teste baseado em modelo</strong>: comparar com uma implementação de referência correta (ainda que ineficiente) é uma técnica poderosíssima — grandes projetos Haskell mantêm suítes de propriedades executadas a cada commit;</li>
+<li><strong>QuickCheck como "lint" de API</strong>: se uma propriedade é difícil de enunciar, talvez a interface esteja mal desenhada.</li>
 </ul>
-</li>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>É por isso que <strong>código puro é mais fácil de testar</strong> (como prometido no primeiro capítulo do livro): uma função que só depende das entradas visíveis pode ser bombardeada com milhares de entradas aleatórias sem <em>mocks</em> nem preparação de ambiente.</p>
+</div>
+<h2 id="gerando-dados-customizados-a-classe-arbitrary">🎲 Gerando Dados Customizados: a Classe <code>Arbitrary</code><a class="headerlink" href="#gerando-dados-customizados-a-classe-arbitrary" title="Permanent link">&para;</a></h2>
+<p>Para testar o <code>JValue</code>, precisamos ensinar o QuickCheck a gerar valores aleatórios do nosso tipo, implementando a classe <code>Arbitrary</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">class</span><span class="w"> </span><span class="kt">Arbitrary</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="kr">where</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">arbitrary</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Gen</span><span class="w"> </span><span class="n">a</span>
+</code></pre></div>
+<p>A biblioteca fornece combinadores (<code>elements</code>, <code>choose</code>, <code>oneof</code>, <code>listOf</code>) para construir geradores. O desafio interessante do <code>JValue</code> é que ele é <strong>recursivo</strong>: um gerador ingênuo pode criar objetos infinitamente profundos. A solução — detalhada no tutorial — usa o combinador <code>sized</code> para limitar a profundidade, reduzindo o "orçamento" a cada nível de recursão.</p>
+<h2 id="cobertura-com-hpc">📊 Cobertura com HPC<a class="headerlink" href="#cobertura-com-hpc" title="Permanent link">&para;</a></h2>
+<p>Milhares de testes passando é reconfortante — mas quais partes do código os testes <em>realmente</em> exercitam? O <strong>HPC</strong> (<em>Haskell Program Coverage</em>) responde com precisão:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cabal<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--enable-coverage
+</code></pre></div>
+<p>O relatório HTML mostra expressões, ramos e funções cobertos, destacando os trechos que nenhum teste alcança — o guia perfeito para escrever as próximas propriedades.</p>
+<h2 id="o-que-voce-deve-dominar-ao-final">🎯 O que Você Deve Dominar ao Final<a class="headerlink" href="#o-que-voce-deve-dominar-ao-final" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Enunciar invariantes de uma função como propriedades QuickCheck (<code>prop_*</code>);</li>
+<li>Usar <code>==&gt;</code> para restringir entradas e explicar o tipo <code>Property</code>;</li>
+<li>Implementar <code>Arbitrary</code> para um tipo recursivo com controle de profundidade (<code>sized</code>);</li>
+<li>Interpretar um relatório de cobertura HPC e usá-lo para direcionar novos testes.</li>
 </ul>
+<p>Esses são exatamente os itens cobrados no <a href="../07_avaliacao/">trabalho prático da unidade</a>. Os próximos dois capítulos mostram o paradigma funcional em ação em dois domínios mais avançados — construção de interpretadores e processamento de dados geoespaciais — antes de você colocar a mão na massa no trabalho prático.</p>
 <hr />
-<h2 id="comandos-essenciais-do-stack">🛠️ Comandos Essenciais do Stack<a class="headerlink" href="#comandos-essenciais-do-stack" title="Permanent link">&para;</a></h2>
-<p>Dentro do diretório do projeto:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Comando</th>
-<th style="text-align: left;">Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>stack setup</code></td>
-<td style="text-align: left;">Baixa e instala a versão necessária do GHC (se ainda não estiver instalada).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>stack build</code></td>
-<td style="text-align: left;">Compila todo o projeto (biblioteca, executáveis e testes).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>stack run</code></td>
-<td style="text-align: left;">Executa o binário principal do projeto.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>stack test</code></td>
-<td style="text-align: left;">Executa a suíte de testes do projeto.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>stack ghci</code></td>
-<td style="text-align: left;">Abre o REPL interativo carregando todos os módulos e dependências do projeto.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="escrevendo-um-modulo-haskell-moderno">🧩 Escrevendo um Módulo Haskell Moderno<a class="headerlink" href="#escrevendo-um-modulo-haskell-moderno" title="Permanent link">&para;</a></h2>
-<p>Para que os arquivos se enxerguem, cada arquivo <code>.hs</code> dentro de <code>src/</code> deve declarar seu <strong>nome de módulo</strong> de forma correspondente ao seu caminho no sistema de arquivos.</p>
-<p>Exemplo de um arquivo <code>src/SimpleJSON.hs</code>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">module</span><span class="w"> </span><span class="nn">SimpleJSON</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="kt">JValue</span><span class="p">(</span><span class="o">..</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nf">getString</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kr">data</span><span class="w"> </span><span class="kt">JValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">JString</span><span class="w"> </span><span class="kt">String</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span><span class="o">|</span><span class="w"> </span><span class="kt">JBool</span><span class="w"> </span><span class="kt">Bool</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="kr">deriving</span><span class="w"> </span><span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="w"> </span><span class="kt">Eq</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nf">getString</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">JValue</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Maybe</span><span class="w"> </span><span class="kt">String</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nf">getString</span><span class="w"> </span><span class="p">(</span><span class="kt">JString</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Just</span><span class="w"> </span><span class="n">s</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nf">getString</span><span class="w"> </span><span class="kr">_</span><span class="w">           </span><span class="ow">=</span><span class="w"> </span><span class="kt">Nothing</span>
-</code></pre></div></p>
-<p>E para usá-lo em <code>app/Main.hs</code>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">module</span><span class="w"> </span><span class="nn">Main</span><span class="w"> </span><span class="kr">where</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kr">import</span><span class="w"> </span><span class="nn">SimpleJSON</span><span class="w"> </span><span class="p">(</span><span class="kt">JValue</span><span class="p">(</span><span class="o">..</span><span class="p">),</span><span class="w"> </span><span class="nf">getString</span><span class="p">)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">JString</span><span class="w"> </span><span class="s">"Haskell Moderno"</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="p">(</span><span class="n">getString</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
-</code></pre></div></p>
-<hr />
-<h2 id="transicao-da-teoria-academica-para-o-desenvolvimento-modular">🔗 Transição: Da Teoria Acadêmica para o Desenvolvimento Modular<a class="headerlink" href="#transicao-da-teoria-academica-para-o-desenvolvimento-modular" title="Permanent link">&para;</a></h2>
-<p>Na Unidade 1, você trabalhou com arquivos soltos compilados pelo <code>ghc</code> ou carregados no <code>ghci</code>. Essa abordagem é ideal para focar na sintaxe e conceitos puros da linguagem (como casamento de padrões, listas e recursão). </p>
-<p>No entanto, no desenvolvimento real, lidamos com código dividido em múltiplos arquivos (módulos), dependências externas (como bibliotecas HTTP, bancos de dados ou frameworks de teste) e testes de unidade automatizados.</p>
-<p>Nesta <strong>Unidade 2</strong>, usamos o <strong>Stack</strong> para unificar duas práticas fundamentais:</p>
-<ol>
-<li><strong>Modelagem de Dados (SimpleJSON)</strong>: Onde aplicamos os conceitos de tipos de dados algébricos e pattern matching para construir uma biblioteca de parsing e manipulação de objetos JSON reais (baseado no Capítulo 5 do <em>Real World Haskell</em>).</li>
-<li><strong>Garantia de Qualidade (QuickCheck)</strong>: Onde mostramos como testar propriedades matemáticas da nossa biblioteca de maneira automatizada (baseado no Capítulo 11 do <em>Real World Haskell</em>).</li>
-</ol>
-<p>No próximo capítulo, iniciaremos a construção da nossa biblioteca <code>SimpleJSON</code>, aplicando as estruturas de projeto do Stack apresentadas aqui.</p>
+<blockquote>
+<p><strong>Nota de atribuição:</strong> este capítulo adapta material do capítulo 11 de <em>Real World Haskell</em>, de Bryan O'Sullivan, Don Stewart e John Goerzen (<a href="http://book.realworldhaskell.org/read/">book.realworldhaskell.org</a>), sob a licença <a href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-Noncommercial 3.0</a>.</p>
+</blockquote>
 
 
 

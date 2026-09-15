@@ -28,7 +28,7 @@
     
     
       
-        <title>Cap 2: Instalação do Ambiente - Introdução à Programação Funcional</title>
+        <title>Cap 2: Instalação e Projeto Cabal - Introdução à Programação Funcional</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#instalacao-e-configuracao-do-ambiente-haskell" class="md-skip">
+        <a href="#instalacao-do-ambiente-e-estrutura-de-um-projeto-cabal" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cap 2: Instalação do Ambiente
+              Cap 2: Instalação e Projeto Cabal
             
           </span>
         </div>
@@ -418,7 +418,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 2: Instalação do Ambiente
+    Cap 2: Instalação e Projeto Cabal
   
 
     
@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 2: Instalação do Ambiente
+    Cap 2: Instalação e Projeto Cabal
   
 
     
@@ -501,10 +501,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-o-stack-e-como-usa-lo" class="md-nav__link">
+  <a href="#o-repl-ghci-e-cabal-repl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛠️ O que é o Stack e como usá-lo?
+        🛠️ O REPL: ghci e cabal repl
       
     </span>
   </a>
@@ -515,19 +515,30 @@
   <a href="#criando-um-projeto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Criando um projeto
+        📁 Criando um Projeto
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Criando um projeto">
+    <nav class="md-nav" aria-label="📁 Criando um Projeto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#teste" class="md-nav__link">
+  <a href="#o-arquivo-cabal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Teste
+        O arquivo .cabal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-essenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos essenciais
       
     </span>
   </a>
@@ -536,6 +547,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-adicionando-uma-dependencia-e-rodando-quickcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Teste: adicionando uma dependência e rodando QuickCheck
+      
+    </span>
+  </a>
   
 </li>
       
@@ -868,14 +890,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade2/03_exercicios_avancados/" class="md-nav__link">
+      <a href="../../unidade2/03_biblioteca_json/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 11: Exercícios Avançados
+    Cap 11: A Biblioteca JSON
   
 
     
@@ -896,14 +918,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade2/04_haskell_moderno/" class="md-nav__link">
+      <a href="../../unidade2/04_testes_qualidade/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 12: Projetos Modernos com Stack
+    Cap 12: Testes com QuickCheck
   
 
     
@@ -924,14 +946,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade2/05_biblioteca_json/" class="md-nav__link">
+      <a href="../../unidade2/05_pegada_compiladores/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 13: A Biblioteca JSON
+    Cap 13: Pegada de Compiladores
   
 
     
@@ -952,14 +974,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unidade2/06_testes_qualidade/" class="md-nav__link">
+      <a href="../../unidade2/06_pegada_dados_geograficos/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 14: Testes com QuickCheck
+    Cap 14: Pegada de Dados Geográficos
   
 
     
@@ -1611,10 +1633,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-o-stack-e-como-usa-lo" class="md-nav__link">
+  <a href="#o-repl-ghci-e-cabal-repl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛠️ O que é o Stack e como usá-lo?
+        🛠️ O REPL: ghci e cabal repl
       
     </span>
   </a>
@@ -1625,19 +1647,30 @@
   <a href="#criando-um-projeto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Criando um projeto
+        📁 Criando um Projeto
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Criando um projeto">
+    <nav class="md-nav" aria-label="📁 Criando um Projeto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#teste" class="md-nav__link">
+  <a href="#o-arquivo-cabal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Teste
+        O arquivo .cabal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-essenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos essenciais
       
     </span>
   </a>
@@ -1646,6 +1679,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-adicionando-uma-dependencia-e-rodando-quickcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Teste: adicionando uma dependência e rodando QuickCheck
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1666,9 +1710,9 @@
 
 
 
-<h1 id="instalacao-e-configuracao-do-ambiente-haskell">Instalação e Configuração do Ambiente Haskell<a class="headerlink" href="#instalacao-e-configuracao-do-ambiente-haskell" title="Permanent link">&para;</a></h1>
-<p>A abordagem moderna e padrão recomendada hoje pela comunidade Haskell para instalar e gerenciar o compilador e suas ferramentas de build é o <strong>GHCup</strong> (Haskell Toolchain Installer). O GHCup gerencia a instalação do compilador GHC, do gerenciador de pacotes Cabal, do servidor de linguagem HLS (Haskell Language Server) e do <strong>Stack</strong>.</p>
-<p>Neste livro, utilizaremos o <strong>Stack</strong> como a nossa ferramenta de build e gerenciamento de projetos devido à sua confiabilidade com os <em>Resolvers</em> (snapshots compatíveis de pacotes que garantem compilação livre de erros de versão).</p>
+<h1 id="instalacao-do-ambiente-e-estrutura-de-um-projeto-cabal">Instalação do Ambiente e Estrutura de um Projeto Cabal<a class="headerlink" href="#instalacao-do-ambiente-e-estrutura-de-um-projeto-cabal" title="Permanent link">&para;</a></h1>
+<p>A abordagem moderna e padrão recomendada hoje pela comunidade Haskell para instalar e gerenciar o compilador e suas ferramentas de build é o <strong>GHCup</strong> (Haskell Toolchain Installer). O GHCup gerencia a instalação do compilador <strong>GHC</strong>, do gerenciador de pacotes <strong>Cabal</strong>, do servidor de linguagem <strong>HLS</strong> (Haskell Language Server) e, opcionalmente, do Stack.</p>
+<p>Neste livro, utilizaremos o <strong>Cabal</strong> como ferramenta de build e gerenciamento de projetos: é a ferramenta mantida pelo próprio time do GHC, distribuída junto com o compilador, e a recomendação oficial atual em <a href="https://www.haskell.org/get-started/">haskell.org</a>. Não é preciso instalar nada além do GHCup — Cabal já vem incluído.</p>
 <hr />
 <h2 id="como-instalar-o-haskell-com-ghcup">💻 Como Instalar o Haskell com GHCup<a class="headerlink" href="#como-instalar-o-haskell-com-ghcup" title="Permanent link">&para;</a></h2>
 <h3 id="1-no-linux-e-macos">1. No Linux e macOS<a class="headerlink" href="#1-no-linux-e-macos" title="Permanent link">&para;</a></h3>
@@ -1679,145 +1723,193 @@ Durante a instalação interativa:</p>
 <ul>
 <li>Pressione <strong>Enter</strong> para aceitar os caminhos padrão do diretório de instalação.</li>
 <li>Quando perguntado se deseja adicionar os caminhos ao seu <code>PATH</code> (no arquivo <code>.bashrc</code> ou <code>.zshrc</code>), responda <strong>Yes (Y)</strong>.</li>
-<li>Quando perguntado se deseja instalar o <strong>Stack</strong> (nossa ferramenta de build), responda <strong>Yes (Y)</strong>.</li>
+<li>Quando perguntado se deseja instalar o <strong>Stack</strong>, você pode responder <strong>No (N)</strong> — não vamos precisar dele neste livro.</li>
 <li>Quando perguntado se deseja instalar o <strong>HLS</strong> (Haskell Language Server, essencial para autocompletar e linting no VS Code), responda <strong>Yes (Y)</strong>.</li>
 </ul>
-<p>Após a conclusão da instalação, reinicie o seu terminal ou execute <code>source ~/.bashrc</code> (ou seu equivalente) para carregar os caminhos de execução.</p>
+<p>Após a conclusão da instalação, reinicie o seu terminal ou execute <code>source ~/.bashrc</code> (ou seu equivalente) para carregar os caminhos de execução. Confirme que tudo está no <code>PATH</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ghc<span class="w"> </span>--version
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cabal<span class="w"> </span>--version
+</code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">No Linux: uma biblioteca do sistema</p>
+<p>O Cabal compila algumas dependências que precisam de aritmética de precisão arbitrária (GMP) para linkar. Se a compilação falhar com um erro do tipo <code>cannot find -lgmp</code>, falta o pacote de desenvolvimento do GMP no seu sistema — no Debian/Ubuntu:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgmp-dev
+</code></pre></div>
+O runtime do GHC já depende do GMP, então normalmente já está instalado; falta especificamente o pacote <code>-dev</code> com os símbolos de link.</p>
+</div>
 <h3 id="2-no-windows">2. No Windows<a class="headerlink" href="#2-no-windows" title="Permanent link">&para;</a></h3>
 <p>Abra o console do PowerShell (de preferência como Administrador) e execute o script oficial:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-Scope</span> <span class="k">Process</span> <span class="n">-Force</span><span class="p">;</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="o">-bor</span> <span class="n">3072</span><span class="p">;</span> <span class="nb">iex </span><span class="p">((</span><span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">'https://get-ghcup.haskell.org/install_haskell.ps1'</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-Scope</span> <span class="k">Process</span> <span class="n">-Force</span><span class="p">;</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="o">-bor</span> <span class="n">3072</span><span class="p">;</span> <span class="nb">iex </span><span class="p">((</span><span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">'https://get-ghcup.haskell.org/install_haskell.ps1'</span><span class="p">))</span>
 </code></pre></div>
-Siga as instruções exibidas na tela e selecione as opções para instalar o <strong>Stack</strong> e o <strong>HLS</strong>.</p>
+Siga as instruções exibidas na tela e selecione as opções para instalar o <strong>HLS</strong> (o Stack, novamente, é opcional e não é necessário para este livro).</p>
+<div class="admonition tip">
+<p class="admonition-title">Se o <code>cabal build</code>/<code>cabal update</code> falhar com erro de assinatura</p>
+<p>Versões de <code>cabal-install</code> muito antigas (por exemplo, as empacotadas pelo <code>apt</code> de distribuições Linux mais velhas) às vezes não conseguem validar o índice atual do Hackage, e falham com uma mensagem parecida com <code>&lt;repo&gt;/root.json does not have enough signatures signed with the appropriate keys</code>. Isso acontece quando o Hackage rotaciona as chaves de assinatura do índice e o <code>cabal-install</code> instalado é velho demais para reconhecer as novas. A correção é instalar um <code>cabal-install</code> atual via GHCup (como fizemos acima) em vez de depender do pacote do sistema operacional.</p>
+</div>
 <hr />
-<h2 id="o-que-e-o-stack-e-como-usa-lo">🛠️ O que é o Stack e como usá-lo?<a class="headerlink" href="#o-que-e-o-stack-e-como-usa-lo" title="Permanent link">&para;</a></h2>
-<p>O <strong>Stack</strong> é um gerenciador de projetos que isola as dependências de cada projeto Haskell. A primeira vez que você rodar um comando do Stack, ele baixará a versão correspondente do compilador GHC automaticamente na sua pasta pessoal de usuário, sem interferir com outras instalações do seu sistema.</p>
-<p>Para testar a instalação e abrir o interpretador interativo (REPL) do Haskell gerenciado pelo Stack, execute:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>stack<span class="w"> </span>ghci
+<h2 id="o-repl-ghci-e-cabal-repl">🛠️ O REPL: <code>ghci</code> e <code>cabal repl</code><a class="headerlink" href="#o-repl-ghci-e-cabal-repl" title="Permanent link">&para;</a></h2>
+<p>Fora de qualquer projeto, <code>ghci</code> sozinho abre um REPL com só a biblioteca <code>base</code> carregada — é a calculadora interativa que usamos no capítulo anterior. Dentro de um projeto Cabal (que vamos criar já já), <code>cabal repl</code> abre o mesmo REPL, mas já com os módulos e as dependências do seu projeto carregados.</p>
+<h2 id="criando-um-projeto">📁 Criando um Projeto<a class="headerlink" href="#criando-um-projeto" title="Permanent link">&para;</a></h2>
+<p>Para a atividade deste livro, vamos criar o projeto <code>hs2json</code> (o mesmo que será o trabalho prático da Unidade 2). O Cabal tem um assistente interativo para gerar a estrutura inicial:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cabal<span class="w"> </span>init<span class="w"> </span>--interactive
 </code></pre></div>
-<em>Na primeira vez, esse comando pode demorar alguns minutos pois o Stack baixará o compilador GHC e as bibliotecas base para o diretório de cache do usuário.</em></p>
-<h2 id="criando-um-projeto">Criando um projeto<a class="headerlink" href="#criando-um-projeto" title="Permanent link">&para;</a></h2>
-<p>Para a atividade, crie o projeto hs2json</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>stack<span class="w"> </span>new<span class="w"> </span>hs2json
+<p>Ele faz uma série de perguntas (nome do pacote, versão, se você quer uma biblioteca/executável/suíte de testes, licença, linguagem...). Para este livro, responda que sim para biblioteca, executável e suíte de testes. O resultado é uma árvore de diretórios como esta:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hs2json/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── app/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│   └── Main.hs          # Ponto de entrada executável (função main)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├── src/
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│   └── MyLib.hs          # Código-fonte da biblioteca reutilizável
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>├── test/
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│   └── Main.hs            # Suíte de testes automatizados
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>└── hs2json.cabal          # Descrição do pacote: metadados, dependências, módulos
 </code></pre></div>
-<p>Esse comando irá criar uma pasta, nesse caso com o nome hs2json, com alguns arquivos básicos.</p>
-<p><img alt="" src="../img-instalacao-stack/Untitled%204.png" /></p>
-<p>Abrindo a pasta no VisualStudio code, observe uma pasta src, que poderá ter módulos, e outros arquivo do projeto. Em app tem o programa principal, que é o Main.hs nesse caso. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>stack<span class="w"> </span>build
+<h3 id="o-arquivo-cabal">O arquivo <code>.cabal</code><a class="headerlink" href="#o-arquivo-cabal" title="Permanent link">&para;</a></h3>
+<p>O <code>hs2json.cabal</code> é o único arquivo de configuração — sem a duplicação <code>package.yaml</code>/<code>stack.yaml</code> de outras ferramentas. Ele descreve, em seções (<code>library</code>, <code>executable</code>, <code>test-suite</code>), quais módulos cada parte do projeto expõe e de quais bibliotecas depende:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>library
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    exposed-modules:  MyLib
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    hs-source-dirs:   src
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    build-depends:    base &gt;=4.14
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    default-language: Haskell2010
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>executable hs2json
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    main-is:          Main.hs
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    hs-source-dirs:   app
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    build-depends:    base &gt;=4.14, hs2json
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    default-language: Haskell2010
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>test-suite hs2json-test
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    type:             exitcode-stdio-1.0
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    main-is:          Main.hs
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    hs-source-dirs:   test
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    build-depends:    base &gt;=4.14, hs2json
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    default-language: Haskell2010
 </code></pre></div>
-<p>ele gera um executável com o nome do projeto e o sufixo "-exe". Podemos rodar explicitamente com:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>stack<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>hs2json-exe
+<p>Cada arquivo <code>.hs</code> dentro de <code>src/</code> deve declarar seu <strong>nome de módulo</strong> de forma correspondente ao seu caminho, e precisa estar listado em <code>exposed-modules</code> pra que o executável e os testes consigam importá-lo.</p>
+<h3 id="comandos-essenciais">Comandos essenciais<a class="headerlink" href="#comandos-essenciais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Comando</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>cabal build</code></td>
+<td style="text-align: left;">Compila todo o projeto (biblioteca, executáveis e testes).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cabal run</code></td>
+<td style="text-align: left;">Executa o binário principal do projeto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cabal test</code></td>
+<td style="text-align: left;">Executa a suíte de testes do projeto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cabal repl</code></td>
+<td style="text-align: left;">Abre o REPL carregando os módulos e dependências do projeto.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cabal<span class="w"> </span>build
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cabal<span class="w"> </span>run
 </code></pre></div>
-<p>Ou simplesmente:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>stack<span class="w"> </span>run
+<p>A primeira vez que você rodar <code>cabal build</code> num projeto novo, ele vai buscar o índice de pacotes do Hackage (<code>cabal update</code>, se ainda não tiver rodado) e baixar as dependências — pode demorar um pouco.</p>
+<hr />
+<h2 id="teste-adicionando-uma-dependencia-e-rodando-quickcheck">🧪 Teste: adicionando uma dependência e rodando QuickCheck<a class="headerlink" href="#teste-adicionando-uma-dependencia-e-rodando-quickcheck" title="Permanent link">&para;</a></h2>
+<p>Vamos ver como adicionar uma biblioteca e rodar testes com QuickCheck. Primeiro, em <code>src/MyLib.hs</code>, uma função mais interessante que a padrão — uma (propositalmente falha) implementação de quicksort:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">module</span><span class="w"> </span><span class="nn">MyLib</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="nf">someFunc</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nf">qsort</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nf">qsort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nf">qsort</span><span class="w"> </span><span class="kt">[]</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nf">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kr">where</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w">  </span><span class="p">(</span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">          </span><span class="n">rhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="nf">someFunc</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="nf">someFunc</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"someFunc"</span>
 </code></pre></div>
-<p>Para instalar o executável, basta executar <code>stack install</code> e o nome do projeto.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>stack<span class="w"> </span>install<span class="w"> </span>hs2json
+<p>Para testar essa função, vamos importar a biblioteca QuickCheck em <code>test/Main.hs</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Test.QuickCheck</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"Test suite not yet implemented"</span>
 </code></pre></div>
-<p>No linux, o executável será copiado para a pasta ~/.local/bin:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Copied<span class="w"> </span>executables<span class="w"> </span>to<span class="w"> </span>/home/sergio/.local/bin:
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-<span class="w"> </span>hs2json-exe
+<p>Rodando o teste agora:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>cabal<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>...
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Main.hs:1:1:<span class="w"> </span>error:
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>module<span class="w"> </span><span class="sb">`</span>Test.QuickCheck<span class="err">'</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span>...
 </code></pre></div>
-<h3 id="teste">Teste<a class="headerlink" href="#teste" title="Permanent link">&para;</a></h3>
-<p>Aqui iremos ver como adicionar uma biblioteca, e consequentemente como rodar os teste em seu projeto usando o QuickCheck. Antes de mais nada, vamos precisar de uma função mais útil. Então em lib, adiciona a função qsort:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">module</span><span class="w"> </span><span class="nn">Lib</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">(</span><span class="w"> </span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">                </span><span class="nf">someFunc</span><span class="p">,</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="nf">qsort</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nf">qsort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nf">qsort</span><span class="w"> </span><span class="kt">[]</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nf">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="kr">where</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w">  </span><span class="p">(</span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">          </span><span class="n">rhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="nf">someFunc</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="nf">someFunc</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"someFunc"</span>
-</code></pre></div>
-<p>Para testar essa função,  vamos adicionar a biblioteca Quickcheck com o seguinte import:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Test.QuickCheck</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"Test suite not yet implemented"</span>
-</code></pre></div>
-<p>Agora vamos executar o teste:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="n">test</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sergio</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hs2json</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="kt">Spec</span><span class="o">.</span><span class="n">hs</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span><span class="w"> </span><span class="ne">error</span><span class="kt">:</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kt">Could</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="kr">module</span><span class="w"> </span><span class="err">‘</span><span class="nn">Test.QuickCheck</span><span class="err">’</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kt">Use</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="kr">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">searched</span><span class="w"> </span><span class="n">for</span><span class="o">.</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="o">|</span><span class="w">         </span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kr">import</span><span class="w"> </span><span class="nn">Test.QuickCheck</span>
-</code></pre></div>
-<p>Isso significa que o import não está disponível. Para poder usar o Quickcheck é necessário adicionar essa dependencia no package.yaml:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">dependencies</span><span class="p">:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base &gt;= 4.7 &amp;&amp; &lt; 5</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuickCheck</span><span class="w"> </span><span class="c1"># adicionado aqui</span>
+<p>O import não está disponível porque <code>QuickCheck</code> ainda não é uma dependência do projeto. Adicionamos no <code>.cabal</code>, na seção <code>test-suite</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>test-suite hs2json-test
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    type:             exitcode-stdio-1.0
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    main-is:          Main.hs
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    hs-source-dirs:   test
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    build-depends:
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        base &gt;=4.14,
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>        hs2json,
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        QuickCheck
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    default-language: Haskell2010
 </code></pre></div>
 <p>Agora podemos testar novamente:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>&gt;<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>....
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>hs2json<span class="w">   </span>&gt;<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">(</span>suite:<span class="w"> </span>hs2json-test<span class="o">)</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Test<span class="w"> </span>suite<span class="w"> </span>not<span class="w"> </span>yet<span class="w"> </span>implemented
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>hs2json<span class="w">   </span>&gt;<span class="w"> </span>Test<span class="w"> </span>suite<span class="w"> </span>hs2json-test<span class="w"> </span>passed
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>Completed<span class="w"> </span><span class="m">5</span><span class="w"> </span>action<span class="o">(</span>s<span class="o">)</span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>cabal<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>...
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Test<span class="w"> </span>suite<span class="w"> </span>hs2json-test:<span class="w"> </span>RUNNING...
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Test<span class="w"> </span>suite<span class="w"> </span>not<span class="w"> </span>yet<span class="w"> </span>implemented
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Test<span class="w"> </span>suite<span class="w"> </span>hs2json-test:<span class="w"> </span>PASS
 </code></pre></div>
-<p>Agora vamos implementar um teste para a função quicksort.  Se esta função obedece às regras básicas que uma boa ordenação deveria seguir. Uma invariante útil para começar e uma que aparece com frequência em códigos puramente funcionais, é a idempotência – uma função aplicada duas vezes deve ter o mesmo resultado quando aplicada apenas uma vez. Para a nossa rotina de ordenação – um algoritmo estável de ordenação – isso deve ser sempre verdadeiro. A invariante pode ser codificada como uma simples propriedade, da seguinte maneira</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nf">prop_idempotent</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span>
+<p>Agora vamos implementar um teste de verdade para a função <code>qsort</code>: uma propriedade que qualquer boa ordenação deveria obedecer. Uma invariante útil e que aparece com frequência em código puramente funcional é a <strong>idempotência</strong> — aplicar a função duas vezes deve dar o mesmo resultado que aplicar uma vez. Para uma rotina de ordenação, isso deveria ser sempre verdade:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nf">prop_idempotent</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span>
 </code></pre></div>
-<p>O funcionamento dessa biblioteca será estudado em detalhes na Unidade 2 (capítulo de <a href="../../unidade2/06_testes_qualidade/">Testes com QuickCheck</a>); a referência original é o capítulo 11 de <a href="http://book.realworldhaskell.org/read/testing-and-quality-assurance.html"><em>Real World Haskell</em></a>. O objetivo deste tutorial é apresentar o <code>stack</code>. Então, por aqui, assuma que vamos precisar atualizar o arquivo <code>test/Spec.hs</code> como a seguir:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">{-# LANGUAGE TemplateHaskell #-}</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Test.QuickCheck</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Lib</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nf">prop_idempotent</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="nf">return</span><span class="w"> </span><span class="kt">[]</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nf">runTests</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="o">$</span><span class="n">quickCheckAll</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">runTests</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">passed</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"Passou em todos testes."</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">                                             </span><span class="kr">else</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"Alguns testes falharam"</span>
+<p>O funcionamento dessa biblioteca será estudado em detalhes no capítulo de <a href="../../unidade2/04_testes_qualidade/">Testes com QuickCheck</a>; a referência original é o capítulo 11 de <a href="http://book.realworldhaskell.org/read/testing-and-quality-assurance.html"><em>Real World Haskell</em></a>. O objetivo aqui é só apresentar o <code>cabal</code>. Então, por enquanto, assuma que vamos atualizar <code>test/Main.hs</code> desse jeito:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">{-# LANGUAGE TemplateHaskell #-}</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kr">import</span><span class="w"> </span><span class="nn">Test.QuickCheck</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kr">import</span><span class="w"> </span><span class="nn">MyLib</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nf">prop_idempotent</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">xs</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nf">return</span><span class="w"> </span><span class="kt">[]</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nf">runTests</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="o">$</span><span class="n">quickCheckAll</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">runTests</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">passed</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"Passou em todos os testes."</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">                                          </span><span class="kr">else</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">"Alguns testes falharam."</span>
 </code></pre></div>
 <p>Agora podemos rodar os testes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>&gt;<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>...
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>hs2json&gt;<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">(</span>suite:<span class="w"> </span>hs2json-test<span class="o">)</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>Progress<span class="w"> </span><span class="m">1</span>/2:<span class="w"> </span><span class="nv">hs2json</span><span class="o">===</span><span class="w"> </span>prop_idempotent<span class="w"> </span>from<span class="w"> </span>test/Spec.hs:6<span class="w"> </span><span class="o">===</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>***<span class="w"> </span>Failed!<span class="w"> </span>Falsified<span class="w"> </span><span class="o">(</span>after<span class="w"> </span><span class="m">5</span><span class="w"> </span>tests<span class="w"> </span>and<span class="w"> </span><span class="m">2</span><span class="w"> </span>shrinks<span class="o">)</span>:<span class="w">    </span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="o">[</span><span class="m">0</span>,-1<span class="o">]</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>Alguns<span class="w"> </span>testes<span class="w"> </span>falharam
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>cabal<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>...
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="o">===</span><span class="w"> </span>prop_idempotent<span class="w"> </span>from<span class="w"> </span>test/Main.hs:6<span class="w"> </span><span class="o">===</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>***<span class="w"> </span>Failed!<span class="w"> </span>Falsified<span class="w"> </span><span class="o">(</span>after<span class="w"> </span><span class="m">5</span><span class="w"> </span>tests<span class="w"> </span>and<span class="w"> </span><span class="m">2</span><span class="w"> </span>shrinks<span class="o">)</span>:
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="o">[</span><span class="m">0</span>,-1<span class="o">]</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Alguns<span class="w"> </span>testes<span class="w"> </span>falharam.
 </code></pre></div>
-<p>Verificamos aqui que após 5 tests, ocorreu uma falha. Ao voltarmos ao código encontramos o erro.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nf">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span>
+<p>Depois de 5 testes, ocorreu uma falha. Voltando ao código, encontramos o erro — uma linha que devia usar <code>rhs</code> está usando <code>lhs</code> de novo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nf">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w">   </span><span class="c1">-- errado</span>
 </code></pre></div>
-<p>Deveria ser:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nf">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">rhs</span>
+<p>O correto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nf">qsort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nf">qsort</span><span class="w"> </span><span class="kt">[]</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nf">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">rhs</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="kr">where</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w">  </span><span class="p">(</span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">          </span><span class="n">rhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
 </code></pre></div>
-<p>O codigo completo deveria ser então:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nf">qsort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nf">qsort</span><span class="w"> </span><span class="kt">[]</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nf">qsort</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">qsort</span><span class="w"> </span><span class="n">rhs</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="kr">where</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w">  </span><span class="p">(</span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">          </span><span class="n">rhs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span>
+<p>Rodando os testes de novo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>cabal<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>...
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="o">===</span><span class="w"> </span>prop_idempotent<span class="w"> </span>from<span class="w"> </span>test/Main.hs:6<span class="w"> </span><span class="o">===</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>+++<span class="w"> </span>OK,<span class="w"> </span>passed<span class="w"> </span><span class="m">100</span><span class="w"> </span>tests.
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>Passou<span class="w"> </span>em<span class="w"> </span>todos<span class="w"> </span>os<span class="w"> </span>testes.
 </code></pre></div>
-<p>Então podemos rodar os testes novamente:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>&gt;<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>...
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="o">===</span><span class="w"> </span>prop_idempotent<span class="w"> </span>from<span class="w"> </span>test/Spec.hs:6<span class="w"> </span><span class="o">===</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>+++<span class="w"> </span>OK,<span class="w"> </span>passed<span class="w"> </span><span class="m">100</span><span class="w"> </span>tests.
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>Passou<span class="w"> </span>em<span class="w"> </span>todos<span class="w"> </span>testes.
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>hs2json&gt;<span class="w"> </span>Test<span class="w"> </span>suite<span class="w"> </span>hs2json-test<span class="w"> </span>passed
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>Completed<span class="w"> </span><span class="m">2</span><span class="w"> </span>action<span class="o">(</span>s<span class="o">)</span>.
-</code></pre></div>
+<p>Esse pequeno ciclo — escrever uma propriedade, deixar o QuickCheck gerar centenas de entradas, achar o bug, corrigir — é exatamente o que vamos aprofundar no capítulo de <a href="../../unidade2/04_testes_qualidade/">Testes com QuickCheck</a> da Unidade 2, aplicado a um projeto bem maior: uma biblioteca de manipulação de JSON.</p>
 
 
 

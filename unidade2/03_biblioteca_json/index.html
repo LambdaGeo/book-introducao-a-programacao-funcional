@@ -14,10 +14,10 @@
       
       
       
-        <link rel="prev" href="../04_haskell_moderno/">
+        <link rel="prev" href="../02_programas_interativos/">
       
       
-        <link rel="next" href="../06_testes_qualidade/">
+        <link rel="next" href="../04_testes_qualidade/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Cap 13: A Biblioteca JSON - Introdução à Programação Funcional</title>
+        <title>Cap 11: A Biblioteca JSON - Introdução à Programação Funcional</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cap 13: A Biblioteca JSON
+              Cap 11: A Biblioteca JSON
             
           </span>
         </div>
@@ -409,7 +409,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 2: Instalação do Ambiente
+    Cap 2: Instalação e Projeto Cabal
   
 
     
@@ -740,62 +740,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../03_exercicios_avancados/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cap 11: Exercícios Avançados
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_haskell_moderno/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cap 12: Projetos Modernos com Stack
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -815,7 +759,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 13: A Biblioteca JSON
+    Cap 11: A Biblioteca JSON
   
 
     
@@ -833,7 +777,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 13: A Biblioteca JSON
+    Cap 11: A Biblioteca JSON
   
 
     
@@ -918,14 +862,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_testes_qualidade/" class="md-nav__link">
+      <a href="../04_testes_qualidade/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 14: Testes com QuickCheck
+    Cap 12: Testes com QuickCheck
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_pegada_compiladores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cap 13: Pegada de Compiladores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_pegada_dados_geograficos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cap 14: Pegada de Dados Geográficos
   
 
     
@@ -1599,16 +1599,16 @@
 
 
 <h1 id="desenvolvendo-uma-biblioteca-json-em-haskell">Desenvolvendo uma Biblioteca JSON em Haskell<a class="headerlink" href="#desenvolvendo-uma-biblioteca-json-em-haskell" title="Permanent link">&para;</a></h1>
-<p>Neste capítulo, iniciamos o projeto central da Unidade 2: uma biblioteca completa para manipulação e serialização de dados em formato <strong>JSON (JavaScript Object Notation)</strong>, adaptando o clássico <em>Real World Haskell</em> (Capítulo 5) para um projeto moderno gerenciado pelo <strong>Stack</strong>.</p>
+<p>Neste capítulo, iniciamos o projeto central da Unidade 2: uma biblioteca completa para manipulação e serialização de dados em formato <strong>JSON (JavaScript Object Notation)</strong>, adaptando o clássico <em>Real World Haskell</em> (Capítulo 5) para um projeto moderno gerenciado pelo <strong>Cabal</strong>.</p>
 <div class="admonition success">
 <p class="admonition-title">Tutorial completo no blog</p>
-<p>O passo a passo detalhado — do <code>stack new</code> até o pacote final, com todos os módulos, códigos e explicações — está publicado como tutorial no blog do LambdaGEO:</p>
+<p>O passo a passo detalhado — do <code>cabal init</code> até o pacote final, com todos os módulos, códigos e explicações — está publicado como tutorial no blog do LambdaGEO:</p>
 <p><strong><a href="https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/">Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck</a></strong></p>
 <p>Este capítulo apresenta os conceitos e as decisões de projeto; siga a <strong>Parte 1</strong> do tutorial para construir a biblioteca.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Leitura complementar</p>
-<p>O capítulo original que inspirou este projeto: <a href="http://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html"><em>Real World Haskell</em>, Cap. 5 — Writing a library: working with JSON data</a> (em inglês; o tutorial do blog moderniza o código para GHC 9.x e Stack).</p>
+<p>O capítulo original que inspirou este projeto: <a href="http://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html"><em>Real World Haskell</em>, Cap. 5 — Writing a library: working with JSON data</a> (em inglês; o tutorial do blog moderniza o código para GHC 9.x e Cabal).</p>
 </div>
 <hr />
 <h2 id="um-tour-relampago-pelo-json">📜 Um Tour Relâmpago pelo JSON<a class="headerlink" href="#um-tour-relampago-pelo-json" title="Permanent link">&para;</a></h2>
@@ -1637,13 +1637,13 @@
 <li><strong><code>Prettify.hs</code></strong> — uma biblioteca <strong>genérica</strong> de pretty printing baseada em um tipo abstrato <code>Doc</code>. <em>Lição:</em> renderizar direto para <code>String</code> funciona, mas amarra a implementação; ao basear a biblioteca em um tipo abstrato, podemos trocar a representação interna sem que os usuários percebam.</li>
 <li><strong><code>PrettyJSON.hs</code></strong> — o renderizador que converte <code>JValue</code> em <code>Doc</code>, cuidando de escapes de strings e caracteres Unicode. <em>Lição:</em> separar a <em>geração do formato</em> da <em>impressão em si</em> — a renderização é uma função <strong>pura</strong>, e o <code>IO</code> fica só nas bordas do programa.</li>
 </ol>
-<p>Além dos módulos, o tutorial cobre a estrutura do projeto Stack (biblioteca + executável), o sistema de exportações dos módulos e o empacotamento — conectando diretamente com o capítulo de <a href="../04_haskell_moderno/">projetos modernos com Stack</a>.</p>
+<p>Além dos módulos, o tutorial cobre a estrutura do projeto Cabal (biblioteca + executável), o sistema de exportações dos módulos e o empacotamento — conectando diretamente com a estrutura de projeto apresentada no capítulo de <a href="../../unidade1/02_instalacao/">Instalação do Ambiente</a>.</p>
 <h2 id="o-que-voce-deve-dominar-ao-final">🎯 O que Você Deve Dominar ao Final<a class="headerlink" href="#o-que-voce-deve-dominar-ao-final" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Definir um ADT recursivo que modela um formato de dados real;</li>
 <li>Escrever accessors totais usando <code>Maybe</code>;</li>
 <li>Explicar por que a biblioteca usa um tipo abstrato <code>Doc</code> em vez de renderizar direto para <code>String</code>;</li>
-<li>Organizar módulos com listas de exportação explícitas em um projeto Stack.</li>
+<li>Organizar módulos com listas de exportação explícitas em um projeto Cabal.</li>
 </ul>
 <p>No próximo capítulo, garantiremos a <strong>correção</strong> da biblioteca com testes baseados em propriedades usando o QuickCheck — a Parte 2 do mesmo tutorial.</p>
 

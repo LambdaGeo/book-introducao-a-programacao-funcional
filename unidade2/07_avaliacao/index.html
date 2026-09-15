@@ -14,7 +14,7 @@
       
       
       
-        <link rel="prev" href="../06_testes_qualidade/">
+        <link rel="prev" href="../06_pegada_dados_geograficos/">
       
       
         <link rel="next" href="../../unidade3/00_plano_unidade3/">
@@ -409,7 +409,7 @@
   <span class="md-ellipsis">
     
   
-    Cap 2: Instalação do Ambiente
+    Cap 2: Instalação e Projeto Cabal
   
 
     
@@ -743,14 +743,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_exercicios_avancados/" class="md-nav__link">
+      <a href="../03_biblioteca_json/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 11: Exercícios Avançados
+    Cap 11: A Biblioteca JSON
   
 
     
@@ -771,14 +771,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_haskell_moderno/" class="md-nav__link">
+      <a href="../04_testes_qualidade/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 12: Projetos Modernos com Stack
+    Cap 12: Testes com QuickCheck
   
 
     
@@ -799,14 +799,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_biblioteca_json/" class="md-nav__link">
+      <a href="../05_pegada_compiladores/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 13: A Biblioteca JSON
+    Cap 13: Pegada de Compiladores
   
 
     
@@ -827,14 +827,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_testes_qualidade/" class="md-nav__link">
+      <a href="../06_pegada_dados_geograficos/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 14: Testes com QuickCheck
+    Cap 14: Pegada de Dados Geográficos
   
 
     
@@ -1633,7 +1633,7 @@
 
 
 <h1 id="avaliacao-da-unidade-2-projeto-hs2json">Avaliação da Unidade 2: Projeto hs2json<a class="headerlink" href="#avaliacao-da-unidade-2-projeto-hs2json" title="Permanent link">&para;</a></h1>
-<p>Esta atividade avaliativa consiste em construir um projeto completo em Haskell moderno, aplicando técnicas de desenvolvimento de bibliotecas, modularização em Stack e testes baseados em propriedades com QuickCheck.</p>
+<p>Esta atividade avaliativa consiste em construir um projeto completo em Haskell moderno, aplicando técnicas de desenvolvimento de bibliotecas, modularização em Cabal e testes baseados em propriedades com QuickCheck.</p>
 <div class="admonition success">
 <p class="admonition-title">Tutorial guiado no blog</p>
 <p>O desenvolvimento completo do projeto é guiado pelo tutorial no blog do LambdaGEO:</p>
@@ -1641,7 +1641,7 @@
 </div>
 <hr />
 <h2 id="especificacoes-do-projeto">📋 Especificações do Projeto<a class="headerlink" href="#especificacoes-do-projeto" title="Permanent link">&para;</a></h2>
-<p>Você deverá criar um projeto Stack chamado <code>hs2json</code> estruturado como uma biblioteca reutilizável e uma suíte de testes robusta.</p>
+<p>Você deverá criar um projeto Cabal chamado <code>hs2json</code> estruturado como uma biblioteca reutilizável e uma suíte de testes robusta.</p>
 <p>O projeto deve conter as seguintes funcionalidades mínimas:</p>
 <h3 id="a-tipo-de-dados-e-accessors-simplejsonhs">A. Tipo de Dados e Accessors (<code>SimpleJSON.hs</code>)<a class="headerlink" href="#a-tipo-de-dados-e-accessors-simplejsonhs" title="Permanent link">&para;</a></h3>
 <p>O arquivo <code>src/SimpleJSON.hs</code> deve definir o tipo algébrico de dados <code>JValue</code> que representa JSON, além de funções para extração segura de dados (<em>accessors</em>):</p>
@@ -1661,7 +1661,7 @@
 <li>Imprimir objetos JSON formatados com indentação e quebra de linhas para fácil legibilidade.</li>
 </ul>
 <h3 id="c-testes-com-quickcheck-testspechs">C. Testes com QuickCheck (<code>test/Spec.hs</code>)<a class="headerlink" href="#c-testes-com-quickcheck-testspechs" title="Permanent link">&para;</a></h3>
-<p>O projeto deve conter uma suíte de testes rodando via <code>stack test</code> com, no mínimo:</p>
+<p>O projeto deve conter uma suíte de testes rodando via <code>cabal test</code> com, no mínimo:</p>
 <ol>
 <li>Implementação da Typeclass <code>Arbitrary</code> para o tipo <code>JValue</code> de forma a gerar dados aleatórios corretos e não-recursivos infinitos.</li>
 <li>No mínimo <strong>5 propriedades</strong> escritas para testar as invariantes da sua biblioteca (ex: idempotência de renderização, corretude dos escapes de string, corretude de acesso nas funções <code>get</code>).</li>
@@ -1669,8 +1669,8 @@
 <hr />
 <h2 id="requisitos-do-repositorio-e-entrega">⚙️ Requisitos do Repositório e Entrega<a class="headerlink" href="#requisitos-do-repositorio-e-entrega" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Estrutura Stack</strong>: O projeto deve compilar limpo rodando <code>stack build</code>.</li>
-<li><strong>Qualidade dos Testes</strong>: A suíte de testes deve rodar com sucesso via <code>stack test</code>.</li>
+<li><strong>Estrutura Cabal</strong>: O projeto deve compilar limpo rodando <code>cabal build</code>.</li>
+<li><strong>Qualidade dos Testes</strong>: A suíte de testes deve rodar com sucesso via <code>cabal test</code>.</li>
 <li><strong>Organização do Git</strong>: O histórico de commits no repositório GitHub deve ser incremental e refletir o avanço por etapas do desenvolvimento do projeto (Conventional Commits recomendado).</li>
 <li><strong>Arquivo <code>README.md</code></strong>: Explicando claramente como clonar, compilar, testar e executar a aplicação.</li>
 </ol>
