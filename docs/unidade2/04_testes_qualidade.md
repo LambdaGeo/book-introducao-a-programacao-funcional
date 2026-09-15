@@ -1,9 +1,9 @@
 # Testes e Garantia de Qualidade com QuickCheck
 
-Neste capítulo, aprenderemos a metodologia de **Testes Baseados em Propriedades** (*Property-Based Testing*) com a biblioteca **QuickCheck**, adaptando o capítulo 11 do *Real World Haskell* para o ambiente de testes de um projeto **Stack** moderno — e a aplicaremos à biblioteca JSON do capítulo anterior.
+Neste capítulo, aprenderemos a metodologia de **Testes Baseados em Propriedades** (*Property-Based Testing*) com a biblioteca **QuickCheck**, adaptando o capítulo 11 do *Real World Haskell* para o ambiente de testes de um projeto **Cabal** moderno — e a aplicaremos à biblioteca JSON do capítulo anterior.
 
 !!! success "Tutorial completo no blog"
-    O passo a passo — configuração da suíte no `package.yaml`, todas as propriedades, a instância `Arbitrary` do `JValue` e a medição de cobertura — está na **Parte 2** do tutorial no blog do LambdaGEO:
+    O passo a passo — configuração da suíte no arquivo `.cabal`, todas as propriedades, a instância `Arbitrary` do `JValue` e a medição de cobertura — está na **Parte 2** do tutorial no blog do LambdaGEO:
 
     **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/)**
 
@@ -73,7 +73,7 @@ A biblioteca fornece combinadores (`elements`, `choose`, `oneof`, `listOf`) para
 Milhares de testes passando é reconfortante — mas quais partes do código os testes *realmente* exercitam? O **HPC** (*Haskell Program Coverage*) responde com precisão:
 
 ```bash
-stack test --coverage
+cabal test --enable-coverage
 ```
 
 O relatório HTML mostra expressões, ramos e funções cobertos, destacando os trechos que nenhum teste alcança — o guia perfeito para escrever as próximas propriedades.
@@ -85,7 +85,7 @@ O relatório HTML mostra expressões, ramos e funções cobertos, destacando os 
 * Implementar `Arbitrary` para um tipo recursivo com controle de profundidade (`sized`);
 * Interpretar um relatório de cobertura HPC e usá-lo para direcionar novos testes.
 
-Esses são exatamente os itens cobrados no [trabalho prático da unidade](07_avaliacao.md).
+Esses são exatamente os itens cobrados no [trabalho prático da unidade](07_avaliacao.md). Os próximos dois capítulos mostram o paradigma funcional em ação em dois domínios mais avançados — construção de interpretadores e processamento de dados geoespaciais — antes de você colocar a mão na massa no trabalho prático.
 
 ---
 

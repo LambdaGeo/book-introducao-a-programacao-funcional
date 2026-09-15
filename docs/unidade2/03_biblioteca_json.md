@@ -1,16 +1,16 @@
 # Desenvolvendo uma Biblioteca JSON em Haskell
 
-Neste capítulo, iniciamos o projeto central da Unidade 2: uma biblioteca completa para manipulação e serialização de dados em formato **JSON (JavaScript Object Notation)**, adaptando o clássico *Real World Haskell* (Capítulo 5) para um projeto moderno gerenciado pelo **Stack**.
+Neste capítulo, iniciamos o projeto central da Unidade 2: uma biblioteca completa para manipulação e serialização de dados em formato **JSON (JavaScript Object Notation)**, adaptando o clássico *Real World Haskell* (Capítulo 5) para um projeto moderno gerenciado pelo **Cabal**.
 
 !!! success "Tutorial completo no blog"
-    O passo a passo detalhado — do `stack new` até o pacote final, com todos os módulos, códigos e explicações — está publicado como tutorial no blog do LambdaGEO:
+    O passo a passo detalhado — do `cabal init` até o pacote final, com todos os módulos, códigos e explicações — está publicado como tutorial no blog do LambdaGEO:
 
     **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/)**
 
     Este capítulo apresenta os conceitos e as decisões de projeto; siga a **Parte 1** do tutorial para construir a biblioteca.
 
 !!! info "Leitura complementar"
-    O capítulo original que inspirou este projeto: [*Real World Haskell*, Cap. 5 — Writing a library: working with JSON data](http://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html) (em inglês; o tutorial do blog moderniza o código para GHC 9.x e Stack).
+    O capítulo original que inspirou este projeto: [*Real World Haskell*, Cap. 5 — Writing a library: working with JSON data](http://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html) (em inglês; o tutorial do blog moderniza o código para GHC 9.x e Cabal).
 
 ---
 
@@ -53,13 +53,13 @@ O tutorial constrói a biblioteca em três módulos, e cada um materializa uma l
 2. **`Prettify.hs`** — uma biblioteca **genérica** de pretty printing baseada em um tipo abstrato `Doc`. *Lição:* renderizar direto para `String` funciona, mas amarra a implementação; ao basear a biblioteca em um tipo abstrato, podemos trocar a representação interna sem que os usuários percebam.
 3. **`PrettyJSON.hs`** — o renderizador que converte `JValue` em `Doc`, cuidando de escapes de strings e caracteres Unicode. *Lição:* separar a *geração do formato* da *impressão em si* — a renderização é uma função **pura**, e o `IO` fica só nas bordas do programa.
 
-Além dos módulos, o tutorial cobre a estrutura do projeto Stack (biblioteca + executável), o sistema de exportações dos módulos e o empacotamento — conectando diretamente com o capítulo de [projetos modernos com Stack](04_haskell_moderno.md).
+Além dos módulos, o tutorial cobre a estrutura do projeto Cabal (biblioteca + executável), o sistema de exportações dos módulos e o empacotamento — conectando diretamente com a estrutura de projeto apresentada no capítulo de [Instalação do Ambiente](../unidade1/02_instalacao.md).
 
 ## 🎯 O que Você Deve Dominar ao Final
 
 * Definir um ADT recursivo que modela um formato de dados real;
 * Escrever accessors totais usando `Maybe`;
 * Explicar por que a biblioteca usa um tipo abstrato `Doc` em vez de renderizar direto para `String`;
-* Organizar módulos com listas de exportação explícitas em um projeto Stack.
+* Organizar módulos com listas de exportação explícitas em um projeto Cabal.
 
 No próximo capítulo, garantiremos a **correção** da biblioteca com testes baseados em propriedades usando o QuickCheck — a Parte 2 do mesmo tutorial.

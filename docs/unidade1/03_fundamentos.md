@@ -82,7 +82,7 @@ Se a avaliação de uma expressão falhar, o valor de `it` não muda — então 
 
 ## 3. Aritmética Básica no GHCi
 
-Ao abrir o GHCi executando `stack ghci` no seu terminal, você será recebido pelo prompt `Prelude>` (o módulo base de funções carregadas por padrão). Podemos usar o interpretador diretamente como uma calculadora de alta precisão:
+Ao abrir o GHCi executando `ghci` no seu terminal (ou `cabal repl`, se estiver dentro de um projeto Cabal — veremos isso no próximo capítulo), você será recebido pelo prompt `Prelude>` (o módulo base de funções carregadas por padrão). Podemos usar o interpretador diretamente como uma calculadora de alta precisão:
 
 ```haskell
 Prelude> 2 + 15

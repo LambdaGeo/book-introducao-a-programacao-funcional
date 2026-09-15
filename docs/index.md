@@ -24,7 +24,7 @@ Cada unidade possui um **plano detalhado** com objetivos de aprendizagem, cronog
 ### 📘 Unidade 1: Paradigmas e Haskell Básico (20h)
 Exploramos os fundamentos teóricos do paradigma funcional em comparação aos paradigmas imperativo e orientado a objetos. Utilizando a linguagem **Haskell**, uma linguagem funcional pura com tipagem estática forte, estudamos os conceitos essenciais:
 
-* Fundamentos da sintaxe e ambiente de desenvolvimento (GHCUp, Stack, REPL/GHCi)
+* Fundamentos da sintaxe e ambiente de desenvolvimento (GHCup, Cabal, REPL/GHCi)
 * Funções puras, casamento de padrões (*pattern matching*) e guardas
 * Manipulação e compreensão de listas, e recursão
 * Funções de Alta Ordem (*High-Order Functions*: `map`, `filter`, `fold`)
@@ -36,9 +36,10 @@ Avançamos para tópicos do ecossistema de produção em Haskell, adaptados às 
 
 * Definição de novos tipos algébricos (ADTs) e Typeclasses
 * Programação interativa usando a Monad de Entrada/Saída (`IO`)
-* Estrutura de projetos industriais com **Stack** e gerenciamento de dependências com Cabal/package.yaml
+* Estrutura de projetos industriais com **Cabal**, empacotamento e gerenciamento de dependências
 * Construção de uma biblioteca de manipulação e serialização de dados JSON (adaptado do clássico *Real World Haskell*, Capítulo 5)
 * Testes baseados em propriedades com **QuickCheck** e garantia de qualidade de software (adaptado do *Real World Haskell*, Capítulo 11)
+* Duas aplicações avançadas do paradigma funcional: construção de interpretadores/parsers (regex via derivadas, um interpretador de Scheme) e processamento de dados geoespaciais
 
 *Avaliação: desenvolvimento prático da biblioteca JSON integrada com uma suíte de testes QuickCheck (100%). Veja o [plano completo da unidade](unidade2/00_plano_unidade2.md).*
 

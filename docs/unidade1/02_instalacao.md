@@ -1,8 +1,8 @@
-# Instalação e Configuração do Ambiente Haskell
+# Instalação do Ambiente e Estrutura de um Projeto Cabal
 
-A abordagem moderna e padrão recomendada hoje pela comunidade Haskell para instalar e gerenciar o compilador e suas ferramentas de build é o **GHCup** (Haskell Toolchain Installer). O GHCup gerencia a instalação do compilador GHC, do gerenciador de pacotes Cabal, do servidor de linguagem HLS (Haskell Language Server) e do **Stack**.
+A abordagem moderna e padrão recomendada hoje pela comunidade Haskell para instalar e gerenciar o compilador e suas ferramentas de build é o **GHCup** (Haskell Toolchain Installer). O GHCup gerencia a instalação do compilador **GHC**, do gerenciador de pacotes **Cabal**, do servidor de linguagem **HLS** (Haskell Language Server) e, opcionalmente, do Stack.
 
-Neste livro, utilizaremos o **Stack** como a nossa ferramenta de build e gerenciamento de projetos devido à sua confiabilidade com os *Resolvers* (snapshots compatíveis de pacotes que garantem compilação livre de erros de versão).
+Neste livro, utilizaremos o **Cabal** como ferramenta de build e gerenciamento de projetos: é a ferramenta mantida pelo próprio time do GHC, distribuída junto com o compilador, e a recomendação oficial atual em [haskell.org](https://www.haskell.org/get-started/). Não é preciso instalar nada além do GHCup — Cabal já vem incluído.
 
 ---
 
@@ -17,82 +17,112 @@ Durante a instalação interativa:
 
 * Pressione **Enter** para aceitar os caminhos padrão do diretório de instalação.
 * Quando perguntado se deseja adicionar os caminhos ao seu `PATH` (no arquivo `.bashrc` ou `.zshrc`), responda **Yes (Y)**.
-* Quando perguntado se deseja instalar o **Stack** (nossa ferramenta de build), responda **Yes (Y)**.
+* Quando perguntado se deseja instalar o **Stack**, você pode responder **No (N)** — não vamos precisar dele neste livro.
 * Quando perguntado se deseja instalar o **HLS** (Haskell Language Server, essencial para autocompletar e linting no VS Code), responda **Yes (Y)**.
 
-Após a conclusão da instalação, reinicie o seu terminal ou execute `source ~/.bashrc` (ou seu equivalente) para carregar os caminhos de execução.
+Após a conclusão da instalação, reinicie o seu terminal ou execute `source ~/.bashrc` (ou seu equivalente) para carregar os caminhos de execução. Confirme que tudo está no `PATH`:
+```bash
+ghc --version
+cabal --version
+```
+
+!!! warning "No Linux: uma biblioteca do sistema"
+    O Cabal compila algumas dependências que precisam de aritmética de precisão arbitrária (GMP) para linkar. Se a compilação falhar com um erro do tipo `cannot find -lgmp`, falta o pacote de desenvolvimento do GMP no seu sistema — no Debian/Ubuntu:
+    ```bash
+    sudo apt install libgmp-dev
+    ```
+    O runtime do GHC já depende do GMP, então normalmente já está instalado; falta especificamente o pacote `-dev` com os símbolos de link.
 
 ### 2. No Windows
 Abra o console do PowerShell (de preferência como Administrador) e execute o script oficial:
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://get-ghcup.haskell.org/install_haskell.ps1'))
 ```
-Siga as instruções exibidas na tela e selecione as opções para instalar o **Stack** e o **HLS**.
+Siga as instruções exibidas na tela e selecione as opções para instalar o **HLS** (o Stack, novamente, é opcional e não é necessário para este livro).
+
+!!! tip "Se o `cabal build`/`cabal update` falhar com erro de assinatura"
+    Versões de `cabal-install` muito antigas (por exemplo, as empacotadas pelo `apt` de distribuições Linux mais velhas) às vezes não conseguem validar o índice atual do Hackage, e falham com uma mensagem parecida com `<repo>/root.json does not have enough signatures signed with the appropriate keys`. Isso acontece quando o Hackage rotaciona as chaves de assinatura do índice e o `cabal-install` instalado é velho demais para reconhecer as novas. A correção é instalar um `cabal-install` atual via GHCup (como fizemos acima) em vez de depender do pacote do sistema operacional.
 
 ---
 
-## 🛠️ O que é o Stack e como usá-lo?
+## 🛠️ O REPL: `ghci` e `cabal repl`
 
-O **Stack** é um gerenciador de projetos que isola as dependências de cada projeto Haskell. A primeira vez que você rodar um comando do Stack, ele baixará a versão correspondente do compilador GHC automaticamente na sua pasta pessoal de usuário, sem interferir com outras instalações do seu sistema.
+Fora de qualquer projeto, `ghci` sozinho abre um REPL com só a biblioteca `base` carregada — é a calculadora interativa que usamos no capítulo anterior. Dentro de um projeto Cabal (que vamos criar já já), `cabal repl` abre o mesmo REPL, mas já com os módulos e as dependências do seu projeto carregados.
 
-Para testar a instalação e abrir o interpretador interativo (REPL) do Haskell gerenciado pelo Stack, execute:
-```bash
-stack ghci
-```
-*Na primeira vez, esse comando pode demorar alguns minutos pois o Stack baixará o compilador GHC e as bibliotecas base para o diretório de cache do usuário.*
+## 📁 Criando um Projeto
 
-## Criando um projeto
-
-Para a atividade, crie o projeto hs2json
+Para a atividade deste livro, vamos criar o projeto `hs2json` (o mesmo que será o trabalho prático da Unidade 2). O Cabal tem um assistente interativo para gerar a estrutura inicial:
 
 ```bash
-stack new hs2json
+cabal init --interactive
 ```
 
-Esse comando irá criar uma pasta, nesse caso com o nome hs2json, com alguns arquivos básicos.
+Ele faz uma série de perguntas (nome do pacote, versão, se você quer uma biblioteca/executável/suíte de testes, licença, linguagem...). Para este livro, responda que sim para biblioteca, executável e suíte de testes. O resultado é uma árvore de diretórios como esta:
 
-![](img-instalacao-stack/Untitled%204.png)
+```text
+hs2json/
+├── app/
+│   └── Main.hs          # Ponto de entrada executável (função main)
+├── src/
+│   └── MyLib.hs          # Código-fonte da biblioteca reutilizável
+├── test/
+│   └── Main.hs            # Suíte de testes automatizados
+└── hs2json.cabal          # Descrição do pacote: metadados, dependências, módulos
+```
 
-Abrindo a pasta no VisualStudio code, observe uma pasta src, que poderá ter módulos, e outros arquivo do projeto. Em app tem o programa principal, que é o Main.hs nesse caso. 
+### O arquivo `.cabal`
+
+O `hs2json.cabal` é o único arquivo de configuração — sem a duplicação `package.yaml`/`stack.yaml` de outras ferramentas. Ele descreve, em seções (`library`, `executable`, `test-suite`), quais módulos cada parte do projeto expõe e de quais bibliotecas depende:
+
+```cabal
+library
+    exposed-modules:  MyLib
+    hs-source-dirs:   src
+    build-depends:    base >=4.14
+    default-language: Haskell2010
+
+executable hs2json
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    build-depends:    base >=4.14, hs2json
+    default-language: Haskell2010
+
+test-suite hs2json-test
+    type:             exitcode-stdio-1.0
+    main-is:          Main.hs
+    hs-source-dirs:   test
+    build-depends:    base >=4.14, hs2json
+    default-language: Haskell2010
+```
+
+Cada arquivo `.hs` dentro de `src/` deve declarar seu **nome de módulo** de forma correspondente ao seu caminho, e precisa estar listado em `exposed-modules` pra que o executável e os testes consigam importá-lo.
+
+### Comandos essenciais
+
+| Comando | Descrição |
+| :--- | :--- |
+| `cabal build` | Compila todo o projeto (biblioteca, executáveis e testes). |
+| `cabal run` | Executa o binário principal do projeto. |
+| `cabal test` | Executa a suíte de testes do projeto. |
+| `cabal repl` | Abre o REPL carregando os módulos e dependências do projeto. |
 
 ```bash
-stack build
+cabal build
+cabal run
 ```
 
-ele gera um executável com o nome do projeto e o sufixo "-exe". Podemos rodar explicitamente com:
+A primeira vez que você rodar `cabal build` num projeto novo, ele vai buscar o índice de pacotes do Hackage (`cabal update`, se ainda não tiver rodado) e baixar as dependências — pode demorar um pouco.
 
-```bash
-stack exec hs2json-exe
-```
+---
 
-Ou simplesmente:
+## 🧪 Teste: adicionando uma dependência e rodando QuickCheck
 
-```bash
-stack run
-```
-
-Para instalar o executável, basta executar `stack install` e o nome do projeto.
-
-```bash
-stack install hs2json
-```
-
-No linux, o executável será copiado para a pasta ~/.local/bin:
-
-```bash
-Copied executables to /home/sergio/.local/bin:
-- hs2json-exe
-```
-
-### Teste
-
-Aqui iremos ver como adicionar uma biblioteca, e consequentemente como rodar os teste em seu projeto usando o QuickCheck. Antes de mais nada, vamos precisar de uma função mais útil. Então em lib, adiciona a função qsort:
+Vamos ver como adicionar uma biblioteca e rodar testes com QuickCheck. Primeiro, em `src/MyLib.hs`, uma função mais interessante que a padrão — uma (propositalmente falha) implementação de quicksort:
 
 ```haskell
-module Lib
-    ( 
-				someFunc,
-        qsort
+module MyLib
+    ( someFunc
+    , qsort
     ) where
 
 qsort :: Ord a => [a] -> [a]
@@ -105,7 +135,7 @@ someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 ```
 
-Para testar essa função,  vamos adicionar a biblioteca Quickcheck com o seguinte import:
+Para testar essa função, vamos importar a biblioteca QuickCheck em `test/Main.hs`:
 
 ```haskell
 import Test.QuickCheck
@@ -114,51 +144,53 @@ main :: IO ()
 main = putStrLn "Test suite not yet implemented"
 ```
 
-Agora vamos executar o teste:
+Rodando o teste agora:
 
-```haskell
-> stack test
-/home/sergio/dev/hs2json/test/Spec.hs:1:1: error:
-    Could not find module ‘Test.QuickCheck’
-    Use -v to see a list of the files searched for.
-  |         
-1 | import Test.QuickCheck
+```bash
+$ cabal test
+...
+Main.hs:1:1: error:
+    Could not find module `Test.QuickCheck'
+    ...
 ```
 
-Isso significa que o import não está disponível. Para poder usar o Quickcheck é necessário adicionar essa dependencia no package.yaml:
+O import não está disponível porque `QuickCheck` ainda não é uma dependência do projeto. Adicionamos no `.cabal`, na seção `test-suite`:
 
-```yaml
-dependencies:
-- base >= 4.7 && < 5
-- QuickCheck # adicionado aqui
+```cabal
+test-suite hs2json-test
+    type:             exitcode-stdio-1.0
+    main-is:          Main.hs
+    hs-source-dirs:   test
+    build-depends:
+        base >=4.14,
+        hs2json,
+        QuickCheck
+    default-language: Haskell2010
 ```
 
 Agora podemos testar novamente:
 
 ```bash
-> stack test
-....
-hs2json   > test (suite: hs2json-test)
-                     
+$ cabal test
+...
+Test suite hs2json-test: RUNNING...
 Test suite not yet implemented
-
-hs2json   > Test suite hs2json-test passed
-Completed 5 action(s).
+Test suite hs2json-test: PASS
 ```
 
-Agora vamos implementar um teste para a função quicksort.  Se esta função obedece às regras básicas que uma boa ordenação deveria seguir. Uma invariante útil para começar e uma que aparece com frequência em códigos puramente funcionais, é a idempotência – uma função aplicada duas vezes deve ter o mesmo resultado quando aplicada apenas uma vez. Para a nossa rotina de ordenação – um algoritmo estável de ordenação – isso deve ser sempre verdadeiro. A invariante pode ser codificada como uma simples propriedade, da seguinte maneira
+Agora vamos implementar um teste de verdade para a função `qsort`: uma propriedade que qualquer boa ordenação deveria obedecer. Uma invariante útil e que aparece com frequência em código puramente funcional é a **idempotência** — aplicar a função duas vezes deve dar o mesmo resultado que aplicar uma vez. Para uma rotina de ordenação, isso deveria ser sempre verdade:
 
 ```haskell
 prop_idempotent xs = qsort (qsort xs) == qsort xs
 ```
 
-O funcionamento dessa biblioteca será estudado em detalhes na Unidade 2 (capítulo de [Testes com QuickCheck](../unidade2/06_testes_qualidade.md)); a referência original é o capítulo 11 de [*Real World Haskell*](http://book.realworldhaskell.org/read/testing-and-quality-assurance.html). O objetivo deste tutorial é apresentar o `stack`. Então, por aqui, assuma que vamos precisar atualizar o arquivo `test/Spec.hs` como a seguir:
+O funcionamento dessa biblioteca será estudado em detalhes no capítulo de [Testes com QuickCheck](../unidade2/04_testes_qualidade.md); a referência original é o capítulo 11 de [*Real World Haskell*](http://book.realworldhaskell.org/read/testing-and-quality-assurance.html). O objetivo aqui é só apresentar o `cabal`. Então, por enquanto, assuma que vamos atualizar `test/Main.hs` desse jeito:
 
 ```haskell
 {-# LANGUAGE TemplateHaskell #-}
 
 import Test.QuickCheck
-import Lib
+import MyLib
 
 prop_idempotent xs = qsort (qsort xs) == qsort xs
 
@@ -166,37 +198,29 @@ return []
 runTests = $quickCheckAll
 
 main :: IO ()
-main = runTests >>= \passed -> if passed then putStrLn "Passou em todos testes."
-                                             else putStrLn "Alguns testes falharam"
+main = runTests >>= \passed -> if passed then putStrLn "Passou em todos os testes."
+                                          else putStrLn "Alguns testes falharam."
 ```
 
 Agora podemos rodar os testes:
 
 ```bash
-> stack test
+$ cabal test
 ...
-hs2json> test (suite: hs2json-test)
-            
-Progress 1/2: hs2json=== prop_idempotent from test/Spec.hs:6 ===
-*** Failed! Falsified (after 5 tests and 2 shrinks):    
+=== prop_idempotent from test/Main.hs:6 ===
+*** Failed! Falsified (after 5 tests and 2 shrinks):
 [0,-1]
 
-Alguns testes falharam
+Alguns testes falharam.
 ```
 
-Verificamos aqui que após 5 tests, ocorreu uma falha. Ao voltarmos ao código encontramos o erro.
+Depois de 5 testes, ocorreu uma falha. Voltando ao código, encontramos o erro — uma linha que devia usar `rhs` está usando `lhs` de novo:
 
 ```haskell
-qsort lhs ++ [x] ++ qsort lhs
+qsort lhs ++ [x] ++ qsort lhs   -- errado
 ```
 
-Deveria ser:
-
-```haskell
-qsort lhs ++ [x] ++ qsort rhs
-```
-
-O codigo completo deveria ser então:
+O correto:
 
 ```haskell
 qsort :: Ord a => [a] -> [a]
@@ -206,18 +230,15 @@ qsort (x:xs) = qsort lhs ++ [x] ++ qsort rhs
           rhs = filter (>= x) xs
 ```
 
-Então podemos rodar os testes novamente:
+Rodando os testes de novo:
 
 ```bash
-> stack test
-
+$ cabal test
 ...
-
-=== prop_idempotent from test/Spec.hs:6 ===
+=== prop_idempotent from test/Main.hs:6 ===
 +++ OK, passed 100 tests.
 
-Passou em todos testes.
-
-hs2json> Test suite hs2json-test passed
-Completed 2 action(s).
+Passou em todos os testes.
 ```
+
+Esse pequeno ciclo — escrever uma propriedade, deixar o QuickCheck gerar centenas de entradas, achar o bug, corrigir — é exatamente o que vamos aprofundar no capítulo de [Testes com QuickCheck](../unidade2/04_testes_qualidade.md) da Unidade 2, aplicado a um projeto bem maior: uma biblioteca de manipulação de JSON.

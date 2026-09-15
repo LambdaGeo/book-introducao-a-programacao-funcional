@@ -169,15 +169,93 @@ main = mainWith minhaFuncao
     minhaFuncao = id
 ```
 
-Compilando e executando (em um executável Stack, este seria o conteúdo de `app/Main.hs`):
+Compilando e executando (num projeto Cabal, este seria o conteúdo de `app/Main.hs`):
 
 ```bash
-$ stack build && stack exec meu-programa-exe entrada.txt saida.txt
+$ cabal build && cabal run meu-programa -- entrada.txt saida.txt
 ```
 
 O ponto pedagógico é o **design**, não a sintaxe nova: `interactWith` é o "framework" fixo (I/O), e `minhaFuncao :: String -> String` é a única peça que muda de programa para programa — e é **pura**, portanto testável no GHCi sem tocar em disco algum. Esse é o mesmo padrão do capítulo de [funções de alta ordem](../unidade1/07_alta_ordem.md): isolar a lógica de negócio da mecânica de E/S.
 
-No próximo capítulo, praticaremos esses conceitos avançados de Haskell através de uma coletânea de exercícios sobre tipos e entrada/saída.
+No próximo capítulo, começamos a construir uma biblioteca completa de manipulação de JSON, aplicando os tipos algébricos e a IO deste capítulo a um projeto real.
+
+---
+
+## 📓 Lista 5: Entrada/Saída (IO) e Programação Interativa
+
+Exercícios de fixação sobre os conceitos deste capítulo.
+
+### Parte 1 – Fundamentos de IO
+
+1. Escreva um programa que leia um caractere do teclado e o imprima duas vezes na tela.
+
+    ```haskell
+    -- exemplo de execução
+    > a
+    aa
+
+    ```
+
+2. Crie um programa que leia dois caracteres e os imprima separados por um espaço.
+
+    ```haskell
+    > a
+    > b
+    a b
+
+    ```
+
+3. Escreva uma versão simplificada do `putStrLn`, chamada `putStrSimples`, que recebe uma string e a imprime caractere por caractere, finalizando com `\n`.
+
+---
+
+### Parte 2 – Lendo e escrevendo Strings
+
+1. Implemente uma função que peça o nome do usuário e o cumprimente.
+
+    ```haskell
+    > Qual eh o seu nome?
+    Sergio
+    Bem vindo Sergio!
+
+    ```
+
+2. Escreva um programa que leia duas linhas do teclado e depois imprima a concatenação delas.
+
+---
+
+### Parte 3 – Do notation
+
+1. Reescreva o seguinte programa sem usar `do` (usando `>>=`):
+
+    ```haskell
+    main = do
+      nome <- getLine
+      putStrLn ("Oi, " ++ nome)
+
+    ```
+
+2. Escreva um programa que peça a idade do usuário e diga se ele é maior de idade ou não.
+
+---
+
+### Parte 4 – Manipulação de arquivos
+
+1. Escreva um programa que leia o conteúdo de um arquivo `"entrada.txt"` e imprima na tela.
+2. Crie uma função que copie o conteúdo de `"entrada.txt"` para `"saida.txt"`.
+3. Usando o padrão `interactWith` deste capítulo, escreva uma função `removerStopwords :: String -> String` que remove de um texto as palavras "e", "de", "a" e "o" (uma por linha na saída), e adapte `interactWith` para que o nome dos arquivos de entrada e saída seja pedido ao usuário via teclado, em vez de vir da linha de comando.
+
+---
+
+### Parte 5 – Desafios
+
+1. Implemente um programa que conte quantas linhas existem em um arquivo de texto.
+2. Escreva uma função `main` que:
+    - pergunte ao usuário um número `n`,
+    - leia uma lista de números de um arquivo,
+    - some apenas os `n` primeiros números,
+    - grave o resultado em outro arquivo.
+3. Escreva um mini "chat": o programa deve ler uma linha do usuário e imprimir de volta a mesma linha em maiúsculas até que ele digite `"sair"`.
 
 ---
 
