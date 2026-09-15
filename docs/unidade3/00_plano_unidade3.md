@@ -35,7 +35,7 @@ Ao final desta unidade, o estudante deverá ser capaz de:
 | 10 | 2h | Laboratório orientado: **projeto ToDo em Elixir/Phoenix LiveView** | [Trabalho Elixir](16_elixir_tutorial_todo.md) |
 
 !!! note "Trabalho extraclasse"
-    Os dois projetos (aulas 6 e 10) são iniciados em laboratório com orientação do professor, mas sua conclusão exige dedicação extraclasse. O desenvolvimento passo a passo é guiado pelos tutoriais publicados no blog do LambdaGEO: **[Clojure/ClojureScript Todo List](https://lambdageo.github.io/blog/tutorial-clojure-clojurescript-todo-list/)** e **[Elixir/Phoenix LiveView Todo List](https://lambdageo.github.io/blog/tutorial-elixir-phoenix-liveview-todo-list/)** — os capítulos correspondentes deste material contêm a introdução e os requisitos de entrega. Os capítulos de metaprogramação (Clojure e Elixir) são apresentados como panorama em aula e indicados como leitura de aprofundamento.
+    Os dois projetos (aulas 6 e 10) são iniciados em laboratório com orientação do professor, mas sua conclusão exige dedicação extraclasse. O desenvolvimento passo a passo é guiado pelos tutoriais publicados no site de tutoriais do LambdaGEO: **[Clojure/ClojureScript Todo List](https://lambdageo.github.io/tutoriais/clojure/)** e **[Elixir/Phoenix LiveView Todo List](https://lambdageo.github.io/tutoriais/elixir/)** — os capítulos correspondentes deste material contêm a introdução e os requisitos de entrega. Os capítulos de metaprogramação (Clojure e Elixir) são apresentados como panorama em aula e indicados como leitura de aprofundamento.
 
 ## Metodologia
 

@@ -1,8 +1,8 @@
-# Pegada de Compiladores: Casamento de Padrões e um Interpretador de Scheme
+# Aplicações Avançadas: Interpretadores
 
 Os capítulos anteriores desta unidade tratam de Haskell como linguagem para *aplicações* — bibliotecas, testes, programas interativos. Mas o paradigma funcional também é, historicamente, a ferramenta de escolha para construir **linguagens**: parsers, interpretadores e compiladores. Álgebra de tipos, recursão estrutural e funções de alta ordem — os mesmos ingredientes dos capítulos anteriores — são exatamente o que se precisa para representar e processar programas como dados.
 
-Este capítulo ilustra essa "pegada" com dois projetos pequenos e completos:
+Este capítulo ilustra essa aplicação avançada com dois projetos pequenos e completos:
 
 1. **[PlayReg](https://github.com/LambdaGeo/playreg)** — um motor de casamento de expressões regulares construído sobre **derivadas de Brzozowski**, generalizado para casamento *ponderado* via semirings.
 2. **[scheme-hs](https://github.com/LambdaGeo/scheme-hs)** — um interpretador de **Scheme** (um dialeto de Lisp), com parser combinators, variáveis mutáveis, *closures* e um REPL.

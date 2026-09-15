@@ -2,10 +2,10 @@
 
 Este capítulo apresenta o **segundo projeto avaliativo da Unidade 3**: construir uma aplicação de **Lista de Tarefas (Todo List)** do zero, usando a stack moderna de **Elixir com Phoenix LiveView** — um framework funcional e reativo para o desenvolvimento web full-stack.
 
-!!! success "Tutorial completo no blog"
-    O passo a passo detalhado — com todos os comandos, códigos e explicações — está publicado como tutorial no blog do LambdaGEO:
+!!! success "Tutorial completo no site de tutoriais"
+    O passo a passo detalhado — com todos os comandos, códigos e explicações — está publicado como tutorial no site de tutoriais do LambdaGEO:
 
-    **[Elixir e Phoenix LiveView: Construindo uma Aplicação Todo List do Zero](https://lambdageo.github.io/blog/tutorial-elixir-phoenix-liveview-todo-list/)**
+    **[Elixir e Phoenix LiveView: Construindo uma Aplicação Todo List do Zero](https://lambdageo.github.io/tutoriais/elixir/)**
 
     Este capítulo é apenas a introdução e o contrato de entrega; siga o tutorial para desenvolver o projeto.
 

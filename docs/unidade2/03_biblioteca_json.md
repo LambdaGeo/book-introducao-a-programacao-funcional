@@ -2,15 +2,15 @@
 
 Neste capítulo, iniciamos o projeto central da Unidade 2: uma biblioteca completa para manipulação e serialização de dados em formato **JSON (JavaScript Object Notation)**, adaptando o clássico *Real World Haskell* (Capítulo 5) para um projeto moderno gerenciado pelo **Cabal**.
 
-!!! success "Tutorial completo no blog"
-    O passo a passo detalhado — do `cabal init` até o pacote final, com todos os módulos, códigos e explicações — está publicado como tutorial no blog do LambdaGEO:
+!!! success "Tutorial completo no site de tutoriais"
+    O passo a passo detalhado — do `cabal init` até o pacote final, com todos os módulos, códigos e explicações — está publicado como tutorial no site de tutoriais do LambdaGEO:
 
-    **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/)**
+    **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/tutoriais/haskell/)**
 
     Este capítulo apresenta os conceitos e as decisões de projeto; siga a **Parte 1** do tutorial para construir a biblioteca.
 
 !!! info "Leitura complementar"
-    O capítulo original que inspirou este projeto: [*Real World Haskell*, Cap. 5 — Writing a library: working with JSON data](http://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html) (em inglês; o tutorial do blog moderniza o código para GHC 9.x e Cabal).
+    O capítulo original que inspirou este projeto: [*Real World Haskell*, Cap. 5 — Writing a library: working with JSON data](http://book.realworldhaskell.org/read/writing-a-library-working-with-json-data.html) (em inglês; o tutorial moderniza o código para GHC 9.x e Cabal).
 
 ---
 

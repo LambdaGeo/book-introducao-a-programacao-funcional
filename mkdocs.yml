@@ -85,8 +85,8 @@ nav:
     - "Cap 10: Programas Interativos (IO)":        unidade2/02_programas_interativos.md
     - "Cap 11: A Biblioteca JSON":                 unidade2/03_biblioteca_json.md
     - "Cap 12: Testes com QuickCheck":             unidade2/04_testes_qualidade.md
-    - "Cap 13: Pegada de Compiladores":            unidade2/05_pegada_compiladores.md
-    - "Cap 14: Pegada de Dados Geográficos":       unidade2/06_pegada_dados_geograficos.md
+    - "Cap 13: Aplicações Avançadas: Interpretadores":     unidade2/05_aplicacoes_interpretadores.md
+    - "Cap 14: Aplicações Avançadas: Dados Geoespaciais":  unidade2/06_aplicacoes_dados_geograficos.md
     - "Trabalho Prático: hs2json":                 unidade2/07_avaliacao.md
 
   - Unidade 3 — Clojure e Elixir (20h):

@@ -2,15 +2,15 @@
 
 Neste capítulo, aprenderemos a metodologia de **Testes Baseados em Propriedades** (*Property-Based Testing*) com a biblioteca **QuickCheck**, adaptando o capítulo 11 do *Real World Haskell* para o ambiente de testes de um projeto **Cabal** moderno — e a aplicaremos à biblioteca JSON do capítulo anterior.
 
-!!! success "Tutorial completo no blog"
-    O passo a passo — configuração da suíte no arquivo `.cabal`, todas as propriedades, a instância `Arbitrary` do `JValue` e a medição de cobertura — está na **Parte 2** do tutorial no blog do LambdaGEO:
+!!! success "Tutorial completo no site de tutoriais"
+    O passo a passo — configuração da suíte no arquivo `.cabal`, todas as propriedades, a instância `Arbitrary` do `JValue` e a medição de cobertura — está na **Parte 2** do tutorial no site de tutoriais do LambdaGEO:
 
-    **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/)**
+    **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/tutoriais/haskell/)**
 
     Este capítulo apresenta os conceitos; siga o tutorial para implementar a suíte completa.
 
 !!! info "Leitura complementar"
-    O capítulo original que inspirou este material: [*Real World Haskell*, Cap. 11 — Testing and quality assurance](http://book.realworldhaskell.org/read/testing-and-quality-assurance.html) (em inglês; o tutorial do blog moderniza o código para QuickCheck 2.14 e o HPC atual).
+    O capítulo original que inspirou este material: [*Real World Haskell*, Cap. 11 — Testing and quality assurance](http://book.realworldhaskell.org/read/testing-and-quality-assurance.html) (em inglês; o tutorial moderniza o código para QuickCheck 2.14 e o HPC atual).
 
 ---
 
