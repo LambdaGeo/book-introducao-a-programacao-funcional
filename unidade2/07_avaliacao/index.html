@@ -14,7 +14,7 @@
       
       
       
-        <link rel="prev" href="../06_pegada_dados_geograficos/">
+        <link rel="prev" href="../06_aplicacoes_dados_geograficos/">
       
       
         <link rel="next" href="../../unidade3/00_plano_unidade3/">
@@ -799,14 +799,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_pegada_compiladores/" class="md-nav__link">
+      <a href="../05_aplicacoes_interpretadores/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 13: Pegada de Compiladores
+    Cap 13: Aplicações Avançadas: Interpretadores
   
 
     
@@ -827,14 +827,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_pegada_dados_geograficos/" class="md-nav__link">
+      <a href="../06_aplicacoes_dados_geograficos/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cap 14: Pegada de Dados Geográficos
+    Cap 14: Aplicações Avançadas: Dados Geoespaciais
   
 
     
@@ -1635,9 +1635,9 @@
 <h1 id="avaliacao-da-unidade-2-projeto-hs2json">Avaliação da Unidade 2: Projeto hs2json<a class="headerlink" href="#avaliacao-da-unidade-2-projeto-hs2json" title="Permanent link">&para;</a></h1>
 <p>Esta atividade avaliativa consiste em construir um projeto completo em Haskell moderno, aplicando técnicas de desenvolvimento de bibliotecas, modularização em Cabal e testes baseados em propriedades com QuickCheck.</p>
 <div class="admonition success">
-<p class="admonition-title">Tutorial guiado no blog</p>
-<p>O desenvolvimento completo do projeto é guiado pelo tutorial no blog do LambdaGEO:</p>
-<p><strong><a href="https://lambdageo.github.io/blog/tutorial-haskell-json-quickcheck/">Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck</a></strong></p>
+<p class="admonition-title">Tutorial guiado no site de tutoriais</p>
+<p>O desenvolvimento completo do projeto é guiado pelo tutorial no site de tutoriais do LambdaGEO:</p>
+<p><strong><a href="https://lambdageo.github.io/tutoriais/haskell/">Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck</a></strong></p>
 </div>
 <hr />
 <h2 id="especificacoes-do-projeto">📋 Especificações do Projeto<a class="headerlink" href="#especificacoes-do-projeto" title="Permanent link">&para;</a></h2>
@@ -1666,6 +1666,10 @@
 <li>Implementação da Typeclass <code>Arbitrary</code> para o tipo <code>JValue</code> de forma a gerar dados aleatórios corretos e não-recursivos infinitos.</li>
 <li>No mínimo <strong>5 propriedades</strong> escritas para testar as invariantes da sua biblioteca (ex: idempotência de renderização, corretude dos escapes de string, corretude de acesso nas funções <code>get</code>).</li>
 </ol>
+<div class="admonition danger">
+<p class="admonition-title">Cuidado ao limitar a recursão do gerador</p>
+<p><code>JValue</code> é recursivo através de <strong>listas</strong> (<code>JObject [(String, JValue)]</code>, <code>JArray [JValue]</code>), o que é mais traiçoeiro do que parece. Usar <code>sized</code> para reduzir um contador <code>n</code> a cada chamada recursiva <strong>não basta</strong>: se você gerar os campos de <code>JObject</code>/<code>JArray</code> com <code>listOf</code>, o comprimento da lista é decidido pelo parâmetro de tamanho <strong>ambiente</strong> do QuickCheck (que cresce até 100 ao longo dos testes), não pelo seu <code>n</code>. O resultado não é um erro de compilação nem um teste que falha rápido — é o processo <strong>travar</strong>, consumindo memória sem fim, porque a árvore gerada cresce exponencialmente (profundidade limitada, largura não). A correção é envolver a chamada a <code>listOf</code> com <code>resize (n \</code>div` 2)`, para que o comprimento da lista também encolha com a profundidade — veja o Capítulo 9 (exercício 3) do <a href="https://lambdageo.github.io/tutoriais/haskell/09-cobertura-hpc.md">tutorial de Haskell</a> para o mecanismo completo, com exemplo de código.</p>
+</div>
 <hr />
 <h2 id="requisitos-do-repositorio-e-entrega">⚙️ Requisitos do Repositório e Entrega<a class="headerlink" href="#requisitos-do-repositorio-e-entrega" title="Permanent link">&para;</a></h2>
 <ol>
