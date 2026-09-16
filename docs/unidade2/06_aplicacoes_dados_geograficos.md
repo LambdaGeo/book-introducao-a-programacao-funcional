@@ -1,4 +1,4 @@
-# Pegada de Dados Geográficos: Geometria e Álgebra de Mapas com o TerraHS
+# Aplicações Avançadas: Dados Geoespaciais
 
 O capítulo anterior mostrou o paradigma funcional construindo linguagens. Este mostra outra aplicação avançada, num domínio bem diferente: **Sistemas de Informação Geográfica (GIS)**. O projeto **[TerraHS](https://github.com/LambdaGeo/terrahs)** é uma reescrita, em Haskell puro, de um software de pesquisa originalmente construído entre 2005 e 2009 no INPE (Instituto Nacional de Pesquisas Espaciais) — e é uma boa ilustração de como os mesmos ingredientes dos capítulos anteriores (ADTs, typeclasses, tipos parametrizados, funções puras) modelam um domínio de aplicação real, fora do universo de "estruturas de dados de livro-texto".
 

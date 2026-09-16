@@ -2,10 +2,10 @@
 
 Este capítulo apresenta o **primeiro projeto avaliativo da Unidade 3**: a construção de uma aplicação **Todo List completa**, indo de um repositório Git vazio até um projeto **full-stack funcional**, usando o ecossistema Clojure moderno.
 
-!!! success "Tutorial completo no blog"
-    O passo a passo detalhado — com todos os comandos, códigos, erros esperados e correções — está publicado como tutorial no blog do LambdaGEO:
+!!! success "Tutorial completo no site de tutoriais"
+    O passo a passo detalhado — com todos os comandos, códigos, erros esperados e correções — está publicado como tutorial no site de tutoriais do LambdaGEO:
 
-    **[Clojure e ClojureScript: Construindo uma Aplicação Todo List do Zero](https://lambdageo.github.io/blog/tutorial-clojure-clojurescript-todo-list/)**
+    **[Clojure e ClojureScript: Construindo uma Aplicação Todo List do Zero](https://lambdageo.github.io/tutoriais/clojure/)**
 
     Este capítulo é apenas a introdução e o contrato de entrega; siga o tutorial para desenvolver o projeto.
 
