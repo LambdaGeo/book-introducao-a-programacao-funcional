@@ -184,5 +184,21 @@ A tolerância natural para desenhar é *metade de um pixel de render* — uma cu
 
 E a imagem resultante é visualmente indistinguível da original — o ganho vem inteiro de vértices que nunca poderiam ter mudado um pixel de qualquer forma. `TerraHS.Geometry.Simplify` mora na biblioteca `terrahs` principal, não num componente à parte como `terrahs-ca`/`terrahs-render`: é aritmética pura sobre coordenadas, sem depender de nada novo — ao contrário de renderizar (que precisa de `JuicyPixels`) ou dos autômatos (que precisam de `comonad`/`contravariant`).
 
+**Na prática**, sem medir nem comparar nada — só carregar um shapefile qualquer e desenhar o mapa — o Simplify entra como mais um passo no meio, entre ler o dado e montar a `Coverage` que vai pro renderer:
+
+```haskell
+main :: IO ()
+main = do
+  Right feats <- readVectorFile "dados/meu-shapefile.shp"
+  let pares   = [ (poly, nome) | (poly, attrs) <- asPolygonPairs feats
+                                , Just nome <- [attrAs "NOME" attrs] ]
+      box     = foldr1 union (map (envelope . fst) pares)
+      epsilon = 1 / (2 * 80)  -- meio pixel, pro mesmo scalePx do renderer
+      cov     = fromPairs [ (simplifyPolygon epsilon poly, nome) | (poly, nome) <- pares ]
+  renderPolygonFillWith corPara "mapa.png" box cov
+```
+
+Quatro chamadas fazem o trabalho todo: `readVectorFile`/`asPolygonPairs`/`attrAs` carregam o shapefile e extraem um atributo (a mesma leitura da seção 4); `simplifyPolygon` roda **em cada polígono, antes** de virar `Coverage` — simplifica a geometria, não a imagem depois de pronta; `renderPolygonFillWith` desenha. É exatamente a receita que `ibge-map-demo` usa — ele só chama `renderPolygonFillWith` duas vezes (original e simplificado) e mede o tempo de cada uma, pra produzir a tabela acima; quem só quer o mapa faz a versão de cima, sem a segunda chamada nem a comparação.
+
 !!! info "Onde ler mais"
     O código completo — geometria, topologia, os parsers de WKT/GeoJSON/Shapefile, a álgebra de `Coverage`, os modelos dinâmicos comonádicos (`terrahs-ca`), a simplificação de geometria, e uma suíte de testes que reproduz os exemplos numéricos originais da pesquisa que deu origem ao projeto — está em **[github.com/LambdaGeo/terrahs](https://github.com/LambdaGeo/terrahs)**. O README do repositório tem instruções de instalação; `cabal run terrahs-demo` roda os exemplos deste capítulo com dados sintéticos reproduzíveis, `cabal run life-demo` / `diffusion-demo` / `fire-demo` rodam os três modelos da seção 3, e `cabal run ibge-map-demo` reproduz a comparação original/simplificado da tabela acima, com o mapa real do Maranhão desenhado dos dois jeitos.
