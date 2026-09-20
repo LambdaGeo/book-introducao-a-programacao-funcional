@@ -135,5 +135,40 @@ parseWKT :: String -> Either String AnyGeometry
 
 O parser de WKT é escrito à mão, sem biblioteca externa, com o mesmo estilo de *parser combinator* do capítulo anterior (uma função `String -> Maybe (a, String)`, combinada com `Functor`/`Applicative`/`Monad`) — um bom exercício para comparar lado a lado com o Parsec usado no `scheme-hs`. Já o leitor de Shapefile trabalha diretamente sobre bytes binários (com a biblioteca `binary`), decodificando um formato que mistura *big-endian* e *little-endian* — um exercício de como um tipo `Get a` também é, por trás da API, uma função que consome um prefixo da entrada e devolve um valor mais o resto, o mesmo padrão conceitual de um parser de texto.
 
+---
+
+## 5. Simplificação de geometria: dividir-para-conquistar com números reais
+
+Um polígono lido de uma fonte real costuma ter vértices demais para o que se vai fazer com ele. A malha municipal do Maranhão do IBGE tem 217 municípios, 280 partes de polígono (ilhas contam separado) e **810.584 vértices no total** — um município só, Amarante do Maranhão, tem mais de 17 mil. Testar cada pixel de um mapa de ~550×740px contra esses vértices (a mesma função `pointInPolygon` da seção 1) é caro, e a maior parte desse custo não compra nada: uma curva menor que meio pixel de tela é invisível, não importa quão precisa seja a medição original.
+
+O algoritmo clássico para isso é **Ramer-Douglas-Peucker**: a mesma receita de *dividir-para-conquistar* do capítulo de [Recursão](../unidade1/06_listas.md), só que sobre coordenadas em vez de números. Dada uma tolerância `epsilon`, mantém sempre o primeiro e o último ponto de uma cadeia; acha o ponto mais distante (perpendicularmente) da reta entre esses dois; se essa distância passa de `epsilon`, o ponto importa — divide a cadeia ali e simplifica cada metade recursivamente; senão, a cadeia inteira colapsa para só os dois pontos das pontas:
+
+```haskell
+simplifyCoords :: Double -> [Coord] -> [Coord]
+simplifyCoords epsilon coords
+  | length coords < 3 = coords
+  | farthestDist > epsilon =
+      simplifyCoords epsilon before ++ drop 1 (simplifyCoords epsilon after)
+  | otherwise = [first, end]
+  where
+    first = head coords
+    end   = last coords
+    (farthestIdx, farthestDist) = -- ponto mais distante da reta first-end
+      maximumBy (comparing snd) (zip [0 ..] (map (perpendicularDistance first end) coords))
+    before = take (farthestIdx + 1) coords  -- inclui o ponto de corte nos dois lados
+    after  = drop farthestIdx coords
+```
+
+Repare no `before`/`after`: as duas metades **compartilham** o ponto de corte (`take (farthestIdx + 1)` de um lado, `drop farthestIdx` do outro) — se fosse um `splitAt` comum, esse ponto ficaria só de um lado e desapareceria do resultado final. Foi exatamente esse bug que apareceu na primeira versão, pego por um teste que checava se a área de um polígono simplificado batia com a original: em vez de um quadrado, saía um triângulo degenerado.
+
+A tolerância natural para desenhar é *metade de um pixel de render* — uma curva menor que isso nunca muda a cor de nenhum pixel. Rodando essa simplificação antes de desenhar o mapa real do Maranhão:
+
+| | Original | Simplificado |
+|---|---|---|
+| Vértices | 810.584 | 10.133 (−98,7%) |
+| Tempo de render | ~29 s | ~0,45 s (~65× mais rápido) |
+
+E a imagem resultante é visualmente indistinguível da original — o ganho vem inteiro de vértices que nunca poderiam ter mudado um pixel de qualquer forma. `TerraHS.Geometry.Simplify` mora na biblioteca `terrahs` principal, não num componente à parte como `terrahs-ca`/`terrahs-render`: é aritmética pura sobre coordenadas, sem depender de nada novo — ao contrário de renderizar (que precisa de `JuicyPixels`) ou dos autômatos (que precisam de `comonad`/`contravariant`).
+
 !!! info "Onde ler mais"
-    O código completo — geometria, topologia, os parsers de WKT/GeoJSON/Shapefile, a álgebra de `Coverage`, os modelos dinâmicos comonádicos (`terrahs-ca`), e uma suíte de testes que reproduz os exemplos numéricos originais da pesquisa que deu origem ao projeto — está em **[github.com/LambdaGeo/terrahs](https://github.com/LambdaGeo/terrahs)**. O README do repositório tem instruções de instalação; `cabal run terrahs-demo` roda os exemplos deste capítulo com dados sintéticos reproduzíveis, e `cabal run life-demo` / `diffusion-demo` / `fire-demo` rodam os três modelos da seção 3 (cada um também desenha o resultado em PNG).
+    O código completo — geometria, topologia, os parsers de WKT/GeoJSON/Shapefile, a álgebra de `Coverage`, os modelos dinâmicos comonádicos (`terrahs-ca`), a simplificação de geometria, e uma suíte de testes que reproduz os exemplos numéricos originais da pesquisa que deu origem ao projeto — está em **[github.com/LambdaGeo/terrahs](https://github.com/LambdaGeo/terrahs)**. O README do repositório tem instruções de instalação; `cabal run terrahs-demo` roda os exemplos deste capítulo com dados sintéticos reproduzíveis, `cabal run life-demo` / `diffusion-demo` / `fire-demo` rodam os três modelos da seção 3, e `cabal run ibge-map-demo` reproduz a comparação original/simplificado da tabela acima, com o mapa real do Maranhão desenhado dos dois jeitos.
