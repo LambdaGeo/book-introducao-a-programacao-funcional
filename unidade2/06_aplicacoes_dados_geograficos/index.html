@@ -926,10 +926,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-lendo-dados-geograficos-de-verdade" class="md-nav__link">
+  <a href="#3-modelos-dinamicos-espaciais-o-comonad-ao-contrario-do-parser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Lendo dados geográficos de verdade
+        3. Modelos dinâmicos espaciais: o comonad ao contrário do parser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-lendo-dados-geograficos-de-verdade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lendo dados geográficos de verdade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-simplificacao-de-geometria-dividir-para-conquistar-com-numeros-reais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Simplificação de geometria: dividir-para-conquistar com números reais
       
     </span>
   </a>
@@ -1583,10 +1605,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-lendo-dados-geograficos-de-verdade" class="md-nav__link">
+  <a href="#3-modelos-dinamicos-espaciais-o-comonad-ao-contrario-do-parser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Lendo dados geográficos de verdade
+        3. Modelos dinâmicos espaciais: o comonad ao contrário do parser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-lendo-dados-geograficos-de-verdade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lendo dados geográficos de verdade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-simplificacao-de-geometria-dividir-para-conquistar-com-numeros-reais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Simplificação de geometria: dividir-para-conquistar com números reais
       
     </span>
   </a>
@@ -1672,16 +1716,81 @@
 </code></pre></div>
 <p>Trocar <code>pointInPolygon</code> por um predicado de proximidade a uma estrada (<code>pointOnLine</code>, com uma tolerância) dá a mesma agregação, mas "ao longo da estrada" em vez de "dentro da área" — sem escrever nenhuma lógica de agregação nova. A separação entre <em>seleção espacial</em> (<code>select</code>, o predicado) e <em>agregação</em> (<code>compose</code>, a função <code>[b] -&gt; b</code>) é o que permite essa reutilização.</p>
 <hr />
-<h2 id="3-lendo-dados-geograficos-de-verdade">3. Lendo dados geográficos de verdade<a class="headerlink" href="#3-lendo-dados-geograficos-de-verdade" title="Permanent link">&para;</a></h2>
+<h2 id="3-modelos-dinamicos-espaciais-o-comonad-ao-contrario-do-parser">3. Modelos dinâmicos espaciais: o comonad ao contrário do parser<a class="headerlink" href="#3-modelos-dinamicos-espaciais-o-comonad-ao-contrario-do-parser" title="Permanent link">&para;</a></h2>
+<p>O capítulo anterior usou <code>Functor</code>, <code>Applicative</code> e <code>Monad</code> para escrever parsers — cada um é, por trás da API, uma função que <strong>produz</strong> um valor a partir de um contexto (<code>String -&gt; Maybe (a, String)</code>, no caso do parser). Existe a classe simétrica, menos comum de se ver em código do dia a dia, mas natural para um problema específico: um <strong>comonad</strong> é um contexto que já <em>tem</em> um valor, e sabe como olhar para valores vizinhos a partir dele. <code>TerraHS.CA</code> — mais um componente independente do pacote (<code>terrahs-ca</code>), ao lado do <code>terrahs-render</code> da próxima seção — usa exatamente essa ideia para modelar sistemas dinâmicos espaciais: autômatos celulares aplicados a um domínio geográfico, o tema original do artigo <em>"Modelos dinâmicos espaciais em programação funcional"</em> (Costa et al.) que deu origem a essa parte do projeto.</p>
+<p>O tipo usado é <code>Store</code> (do pacote <code>comonad</code>): um valor de <code>Store e s</code> é, ao mesmo tempo, uma posição atual (<code>pos</code>), uma função de qualquer posição para seu estado (<code>peek</code>), e o estado da posição atual (<code>extract</code>, o valor de <code>peek</code> na própria posição). Para um autômato celular, isso é exatamente "onde estou, e como consultar qualquer vizinho sem sair daqui". A operação central é <code>extend</code>, que aplica uma regra <code>Store e s -&gt; s</code> a <strong>todas</strong> as posições de uma vez, produzindo um novo <code>Store</code> — um passo de simulação inteiro, sem laço explícito:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nf">stepCA</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="kt">Store</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Store</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Store</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">s</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nf">stepCA</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">extend</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nf">runCA</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="kt">Store</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Store</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Store</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">s</span><span class="p">]</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nf">runCA</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">iterate</span><span class="w"> </span><span class="p">(</span><span class="n">stepCA</span><span class="w"> </span><span class="n">rule</span><span class="p">)</span>
+</code></pre></div>
+<p><code>runCA</code> substitui diretamente o <code>sim :: Monad m =&gt; [t] -&gt; (t -&gt; s -&gt; m s) -&gt; s -&gt; m s</code> do artigo original — a mesma ideia ("aplique a regra repetidamente, gerando uma sequência de estados"), só que como uma lista preguiçosa em vez de uma recursão monádica escrita à mão.</p>
+<p>Um exemplo concreto: um modelo de difusão sobre seis polígonos, onde uma zona contaminada contamina toda zona vizinha no passo seguinte. A vizinhança é o mesmo tipo de predicado espacial da seção anterior — só que agora combinando duas condições com o <code>Monoid</code> de <code>Predicate</code> (<code>&lt;&gt;</code> vira "E lógico"):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nf">adjacent</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Predicate</span><span class="w"> </span><span class="p">(</span><span class="kt">Zone</span><span class="p">,</span><span class="w"> </span><span class="kt">Zone</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nf">adjacent</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">notSelf</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">touchesVia</span><span class="w"> </span><span class="n">zonePoly</span><span class="w"> </span><span class="n">intersects</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nf">diffusionRule</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Store</span><span class="w"> </span><span class="kt">Zone</span><span class="w"> </span><span class="kt">Bool</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nf">diffusionRule</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="p">(</span><span class="n">neighborValues</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">zones</span><span class="w"> </span><span class="n">w</span><span class="p">)</span>
+</code></pre></div>
+<p><code>extract w</code> é "esta zona já está contaminada?"; <code>neighborValues adjacent zones w</code> lê o estado de toda zona vizinha (via <code>peek</code>) sem o autômato nunca precisar saber onde ele está numa grade — a "posição" é só mais um valor do domínio, um <code>Polygon</code>, não um índice <code>(x, y)</code>. Rodar <code>runCA diffusionRule</code> a partir de uma zona contaminada produz a sequência inteira de estados; <code>notSelf</code> e <code>touchesVia</code> são só duas funções auxiliares de <code>TerraHS.CA</code> para montar esse tipo de predicado sem repeti-lo em cada modelo.</p>
+<div class="admonition info">
+<p class="admonition-title">Três modelos, mesma máquina</p>
+<p>O repositório tem três exemplos completos sobre essa base — <code>life-demo</code> (o Jogo da Vida de Conway, num tabuleiro infinito), <code>diffusion-demo</code> (o modelo acima) e <code>fire-demo</code> (incêndio florestal: floresta / queimando / queimado) — cada um só troca o domínio, a regra e o tipo de estado; a máquina (<code>stepCA</code>/<code>runCA</code>/<code>seedCA</code>) é a mesma para os três. Cada um também checa seu resultado contra um valor conhecido de antemão (o planador do Jogo da Vida reproduzindo-se deslocado após 4 gerações; a propagação da difusão contra uma busca em largura feita à mão) em vez de só imprimir a saída.</p>
+</div>
+<hr />
+<h2 id="4-lendo-dados-geograficos-de-verdade">4. Lendo dados geográficos de verdade<a class="headerlink" href="#4-lendo-dados-geograficos-de-verdade" title="Permanent link">&para;</a></h2>
 <p>Além da álgebra, o TerraHS lê formatos de dados geoespaciais padrão da indústria — texto (<strong>WKT</strong>) e binário (<strong>Shapefile</strong>, o formato de fato da ESRI):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nf">parseWKT</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">AnyGeometry</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">-- parseWKT "POLYGON ((0 0, 4 0, 4 4, 0 4, 0 0))"</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">--   ==&gt; Right (AGPolygon (Polygon {polygonRing = [...]}))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nf">parseWKT</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">AnyGeometry</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">-- parseWKT "POLYGON ((0 0, 4 0, 4 4, 0 4, 0 0))"</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">--   ==&gt; Right (AGPolygon (Polygon {polygonRing = [...]}))</span>
 </code></pre></div>
 <p>O parser de WKT é escrito à mão, sem biblioteca externa, com o mesmo estilo de <em>parser combinator</em> do capítulo anterior (uma função <code>String -&gt; Maybe (a, String)</code>, combinada com <code>Functor</code>/<code>Applicative</code>/<code>Monad</code>) — um bom exercício para comparar lado a lado com o Parsec usado no <code>scheme-hs</code>. Já o leitor de Shapefile trabalha diretamente sobre bytes binários (com a biblioteca <code>binary</code>), decodificando um formato que mistura <em>big-endian</em> e <em>little-endian</em> — um exercício de como um tipo <code>Get a</code> também é, por trás da API, uma função que consome um prefixo da entrada e devolve um valor mais o resto, o mesmo padrão conceitual de um parser de texto.</p>
+<hr />
+<h2 id="5-simplificacao-de-geometria-dividir-para-conquistar-com-numeros-reais">5. Simplificação de geometria: dividir-para-conquistar com números reais<a class="headerlink" href="#5-simplificacao-de-geometria-dividir-para-conquistar-com-numeros-reais" title="Permanent link">&para;</a></h2>
+<p>Um polígono lido de uma fonte real costuma ter vértices demais para o que se vai fazer com ele. A malha municipal do Maranhão do IBGE tem 217 municípios, 280 partes de polígono (ilhas contam separado) e <strong>810.584 vértices no total</strong> — um município só, Amarante do Maranhão, tem mais de 17 mil. Testar cada pixel de um mapa de ~550×740px contra esses vértices (a mesma função <code>pointInPolygon</code> da seção 1) é caro, e a maior parte desse custo não compra nada: uma curva menor que meio pixel de tela é invisível, não importa quão precisa seja a medição original.</p>
+<p>O algoritmo clássico para isso é <strong>Ramer-Douglas-Peucker</strong>: a mesma receita de <em>dividir-para-conquistar</em> do capítulo de <a href="../../unidade1/06_listas/">Recursão</a>, só que sobre coordenadas em vez de números. Dada uma tolerância <code>epsilon</code>, mantém sempre o primeiro e o último ponto de uma cadeia; acha o ponto mais distante (perpendicularmente) da reta entre esses dois; se essa distância passa de <code>epsilon</code>, o ponto importa — divide a cadeia ali e simplifica cada metade recursivamente; senão, a cadeia inteira colapsa para só os dois pontos das pontas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nf">simplifyCoords</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Double</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Coord</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Coord</span><span class="p">]</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nf">simplifyCoords</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="n">coords</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">coords</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">coords</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">farthestDist</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="ow">=</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="n">simplifyCoords</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">simplifyCoords</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="n">after</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">]</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="kr">where</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">first</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="n">coords</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">end</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">coords</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="p">(</span><span class="n">farthestIdx</span><span class="p">,</span><span class="w"> </span><span class="n">farthestDist</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="c1">-- ponto mais distante da reta first-end</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="n">maximumBy</span><span class="w"> </span><span class="p">(</span><span class="n">comparing</span><span class="w"> </span><span class="n">snd</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">zip</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="o">..</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="n">perpendicularDistance</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="n">coords</span><span class="p">))</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">before</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="p">(</span><span class="n">farthestIdx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">coords</span><span class="w">  </span><span class="c1">-- inclui o ponto de corte nos dois lados</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="n">after</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="n">farthestIdx</span><span class="w"> </span><span class="n">coords</span>
+</code></pre></div>
+<p>Repare no <code>before</code>/<code>after</code>: as duas metades <strong>compartilham</strong> o ponto de corte (<code>take (farthestIdx + 1)</code> de um lado, <code>drop farthestIdx</code> do outro) — se fosse um <code>splitAt</code> comum, esse ponto ficaria só de um lado e desapareceria do resultado final. Foi exatamente esse bug que apareceu na primeira versão, pego por um teste que checava se a área de um polígono simplificado batia com a original: em vez de um quadrado, saía um triângulo degenerado.</p>
+<p>A tolerância natural para desenhar é <em>metade de um pixel de render</em> — uma curva menor que isso nunca muda a cor de nenhum pixel. Rodando essa simplificação antes de desenhar o mapa real do Maranhão:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Original</th>
+<th>Simplificado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vértices</td>
+<td>810.584</td>
+<td>10.133 (−98,7%)</td>
+</tr>
+<tr>
+<td>Tempo de render</td>
+<td>~29 s</td>
+<td>~0,45 s (~65× mais rápido)</td>
+</tr>
+</tbody>
+</table>
+<p>E a imagem resultante é visualmente indistinguível da original — o ganho vem inteiro de vértices que nunca poderiam ter mudado um pixel de qualquer forma. <code>TerraHS.Geometry.Simplify</code> mora na biblioteca <code>terrahs</code> principal, não num componente à parte como <code>terrahs-ca</code>/<code>terrahs-render</code>: é aritmética pura sobre coordenadas, sem depender de nada novo — ao contrário de renderizar (que precisa de <code>JuicyPixels</code>) ou dos autômatos (que precisam de <code>comonad</code>/<code>contravariant</code>).</p>
 <div class="admonition info">
 <p class="admonition-title">Onde ler mais</p>
-<p>O código completo — geometria, topologia, os parsers de WKT/GeoJSON/Shapefile, a álgebra de <code>Coverage</code>, e uma suíte de testes que reproduz os exemplos numéricos originais da pesquisa que deu origem ao projeto — está em <strong><a href="https://github.com/LambdaGeo/terrahs">github.com/LambdaGeo/terrahs</a></strong>. O README do repositório tem instruções de instalação e um executável de demonstração (<code>cabal run terrahs-demo</code>) que roda os exemplos deste capítulo com dados sintéticos reproduzíveis.</p>
+<p>O código completo — geometria, topologia, os parsers de WKT/GeoJSON/Shapefile, a álgebra de <code>Coverage</code>, os modelos dinâmicos comonádicos (<code>terrahs-ca</code>), a simplificação de geometria, e uma suíte de testes que reproduz os exemplos numéricos originais da pesquisa que deu origem ao projeto — está em <strong><a href="https://github.com/LambdaGeo/terrahs">github.com/LambdaGeo/terrahs</a></strong>. O README do repositório tem instruções de instalação; <code>cabal run terrahs-demo</code> roda os exemplos deste capítulo com dados sintéticos reproduzíveis, <code>cabal run life-demo</code> / <code>diffusion-demo</code> / <code>fire-demo</code> rodam os três modelos da seção 3, e <code>cabal run ibge-map-demo</code> reproduz a comparação original/simplificado da tabela acima, com o mapa real do Maranhão desenhado dos dois jeitos.</p>
 </div>
 
 
