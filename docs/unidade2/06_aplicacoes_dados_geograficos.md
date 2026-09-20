@@ -161,7 +161,21 @@ simplifyCoords epsilon coords
 
 Repare no `before`/`after`: as duas metades **compartilham** o ponto de corte (`take (farthestIdx + 1)` de um lado, `drop farthestIdx` do outro) — se fosse um `splitAt` comum, esse ponto ficaria só de um lado e desapareceria do resultado final. Foi exatamente esse bug que apareceu na primeira versão, pego por um teste que checava se a área de um polígono simplificado batia com a original: em vez de um quadrado, saía um triângulo degenerado.
 
-A tolerância natural para desenhar é *metade de um pixel de render* — uma curva menor que isso nunca muda a cor de nenhum pixel. Rodando essa simplificação antes de desenhar o mapa real do Maranhão:
+Antes de ir para o dado real, o efeito é mais fácil de enxergar numa cadeia pequena, à mão: uma linha reta com um único "solavanco" de 0,05 no meio.
+
+```haskell
+ghci> let bumpy = [Coord 0 0, Coord 1 0, Coord 2 0.05, Coord 3 0, Coord 4 0]
+
+ghci> simplifyCoords 0.1 bumpy    -- tolerância maior que o solavanco (0,05)
+[Coord 0 0,Coord 4 0]
+
+ghci> simplifyCoords 0.04 bumpy   -- tolerância menor que o solavanco
+[Coord 0 0,Coord 2 5.0e-2,Coord 4 0]
+```
+
+Com `epsilon = 0.1`, o ponto do meio está a só 0,05 da reta entre as pontas — menos que a tolerância, então some: a cadeia inteira colapsa para os dois extremos, os únicos que `simplifyCoords` sempre preserva. Com `epsilon = 0.04`, a mesma distância já passa da tolerância, e o ponto fica — a cadeia é dividida ali, e cada metade (só dois pontos cada) já não tem mais nada pra simplificar. É a mesma pergunta, feita uma vez só — "esse ponto muda a forma o suficiente para valer a pena guardar?" — que o mapa real do Maranhão faz 810 mil vezes:
+
+A tolerância natural para desenhar é *metade de um pixel de render* — uma curva menor que isso nunca muda a cor de nenhum pixel. Rodando essa mesma simplificação antes de desenhar o mapa real do Maranhão:
 
 | | Original | Simplificado |
 |---|---|---|
