@@ -5,7 +5,7 @@ Esta atividade avaliativa consiste em construir um projeto completo em Haskell m
 !!! success "Tutorial guiado no site de tutoriais"
     O desenvolvimento completo do projeto é guiado pelo tutorial no site de tutoriais do LambdaGEO:
 
-    **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/tutoriais/haskell/)**
+    **[Construindo e Testando uma Biblioteca Haskell: JSON, Pretty Printing e QuickCheck](https://lambdageo.github.io/lambdageo-tutorials/haskell/)**
 
 ---
 
